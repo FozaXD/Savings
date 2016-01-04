@@ -29,19 +29,86 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItem));
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.amountTextBox = new System.Windows.Forms.TextBox();
+            this.descriptionText = new System.Windows.Forms.Label();
+            this.amountText = new System.Windows.Forms.Label();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.addButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // descriptionTextBox
+            // 
+            resources.ApplyResources(this.descriptionTextBox, "descriptionTextBox");
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            // 
+            // amountTextBox
+            // 
+            resources.ApplyResources(this.amountTextBox, "amountTextBox");
+            this.amountTextBox.Name = "amountTextBox";
+            // 
+            // descriptionText
+            // 
+            resources.ApplyResources(this.descriptionText, "descriptionText");
+            this.descriptionText.Name = "descriptionText";
+            // 
+            // amountText
+            // 
+            resources.ApplyResources(this.amountText, "amountText");
+            this.amountText.Name = "amountText";
+            // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Items.AddRange(new object[] {
+            resources.GetString("categoryComboBox.Items"),
+            resources.GetString("categoryComboBox.Items1"),
+            resources.GetString("categoryComboBox.Items2"),
+            resources.GetString("categoryComboBox.Items3")});
+            resources.ApplyResources(this.categoryComboBox, "categoryComboBox");
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // addButton
+            // 
+            resources.ApplyResources(this.addButton, "addButton");
+            this.addButton.Name = "addButton";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // AddItem
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.categoryComboBox);
+            this.Controls.Add(this.amountText);
+            this.Controls.Add(this.descriptionText);
+            this.Controls.Add(this.amountTextBox);
+            this.Controls.Add(this.descriptionTextBox);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddItem";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.TextBox amountTextBox;
+        private System.Windows.Forms.Label descriptionText;
+        private System.Windows.Forms.Label amountText;
+        private System.Windows.Forms.ComboBox categoryComboBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button addButton;
     }
 }
