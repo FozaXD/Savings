@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Main : Form
     {
-        public static string connectionString = @" Data Source = F:\Databases\SavingsMaster.db; Version = 3 ";
+        public static string connectionString = @" Data Source = Z:\Documents\Databases\SavingsMaster.db; Version = 3 ";
         public static string addType;
 
         public Main()
@@ -44,6 +44,8 @@ namespace WindowsFormsApplication1
                 }
             }
             con.Close();
+            //Set amount column to currency format
+            monthlyDataGridView.Columns["monthlyAmtColumn"].DefaultCellStyle.Format = "c";
         }
 
         public void DrawYearlyDataGridView()
@@ -65,6 +67,8 @@ namespace WindowsFormsApplication1
                 }
             }
             con.Close();
+            //Set amount column to currency format
+            yearlyDataGridView.Columns["yearlyAmtColumn"].DefaultCellStyle.Format = "c";
         }
 
         public void DrawWantedDataGridView()
@@ -86,6 +90,8 @@ namespace WindowsFormsApplication1
                 }
             }
             con.Close();
+            //Set amount column to currency format
+            wantedDataGridView.Columns["wantedAmtColumn"].DefaultCellStyle.Format = "c";
         }
 
         private void RemoveMonthlyRecord()

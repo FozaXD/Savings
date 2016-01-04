@@ -80,6 +80,7 @@ namespace WindowsFormsApplication1
                                 {
                                     MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
                                 }
+                                mainForm.DrawYearlyDataGridView();
                                 Close();
                             }
                         }
@@ -110,6 +111,7 @@ namespace WindowsFormsApplication1
                                 {
                                     MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
                                 }
+                                mainForm.DrawWantedDataGridView();
                                 Close();
                             }
                         }
