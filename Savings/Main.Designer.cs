@@ -30,41 +30,54 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.wantedTotalLabel = new System.Windows.Forms.Label();
+            this.totWantedLabel = new System.Windows.Forms.Label();
+            this.monthlyTotalLabel = new System.Windows.Forms.Label();
+            this.yearlyTotalLabel = new System.Windows.Forms.Label();
+            this.totMonthlyBillsLabel = new System.Windows.Forms.Label();
+            this.totYearlyBillLabel = new System.Windows.Forms.Label();
             this.monthlyDataGridView = new System.Windows.Forms.DataGridView();
             this.monthlyIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monthlyDescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monthlyCatColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monthlyAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.yearlyDataGridView = new System.Windows.Forms.DataGridView();
+            this.yearlyIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearlyDescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearlyCatColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearlyAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.removeYearlyButton = new System.Windows.Forms.Button();
             this.addYearlyButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.removeMonthlyButton = new System.Windows.Forms.Button();
             this.addMonthlyButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.addWantedButton = new System.Windows.Forms.Button();
-            this.removeMonthlyButton = new System.Windows.Forms.Button();
-            this.removeWantedButton = new System.Windows.Forms.Button();
-            this.removeYearlyButton = new System.Windows.Forms.Button();
-            this.yearlyDataGridView = new System.Windows.Forms.DataGridView();
             this.wantedDataGridView = new System.Windows.Forms.DataGridView();
             this.wantedIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wantedDescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wantedCatColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wantedAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearlyAmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearlyCatColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearlyDescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearlyIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.removeWantedButton = new System.Windows.Forms.Button();
+            this.addWantedButton = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yearlyDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yearlyDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wantedDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.wantedTotalLabel);
+            this.groupBox1.Controls.Add(this.totWantedLabel);
+            this.groupBox1.Controls.Add(this.monthlyTotalLabel);
+            this.groupBox1.Controls.Add(this.yearlyTotalLabel);
+            this.groupBox1.Controls.Add(this.totMonthlyBillsLabel);
+            this.groupBox1.Controls.Add(this.totYearlyBillLabel);
             this.groupBox1.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
@@ -72,6 +85,63 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Totals";
+            // 
+            // wantedTotalLabel
+            // 
+            this.wantedTotalLabel.AutoSize = true;
+            this.wantedTotalLabel.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wantedTotalLabel.Location = new System.Drawing.Point(701, 110);
+            this.wantedTotalLabel.Name = "wantedTotalLabel";
+            this.wantedTotalLabel.Size = new System.Drawing.Size(78, 18);
+            this.wantedTotalLabel.TabIndex = 5;
+            this.wantedTotalLabel.Text = "wantedTotal";
+            // 
+            // totWantedLabel
+            // 
+            this.totWantedLabel.AutoSize = true;
+            this.totWantedLabel.Location = new System.Drawing.Point(575, 110);
+            this.totWantedLabel.Name = "totWantedLabel";
+            this.totWantedLabel.Size = new System.Drawing.Size(120, 18);
+            this.totWantedLabel.TabIndex = 4;
+            this.totWantedLabel.Text = "Total of Wanted:";
+            // 
+            // monthlyTotalLabel
+            // 
+            this.monthlyTotalLabel.AutoSize = true;
+            this.monthlyTotalLabel.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthlyTotalLabel.Location = new System.Drawing.Point(435, 110);
+            this.monthlyTotalLabel.Name = "monthlyTotalLabel";
+            this.monthlyTotalLabel.Size = new System.Drawing.Size(83, 18);
+            this.monthlyTotalLabel.TabIndex = 3;
+            this.monthlyTotalLabel.Text = "monthlyTotal";
+            // 
+            // yearlyTotalLabel
+            // 
+            this.yearlyTotalLabel.AutoSize = true;
+            this.yearlyTotalLabel.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearlyTotalLabel.Location = new System.Drawing.Point(142, 110);
+            this.yearlyTotalLabel.Name = "yearlyTotalLabel";
+            this.yearlyTotalLabel.Size = new System.Drawing.Size(72, 18);
+            this.yearlyTotalLabel.TabIndex = 2;
+            this.yearlyTotalLabel.Text = "yearlyTotal";
+            // 
+            // totMonthlyBillsLabel
+            // 
+            this.totMonthlyBillsLabel.AutoSize = true;
+            this.totMonthlyBillsLabel.Location = new System.Drawing.Point(289, 110);
+            this.totMonthlyBillsLabel.Name = "totMonthlyBillsLabel";
+            this.totMonthlyBillsLabel.Size = new System.Drawing.Size(140, 18);
+            this.totMonthlyBillsLabel.TabIndex = 1;
+            this.totMonthlyBillsLabel.Text = "Total Monthly Bills:";
+            // 
+            // totYearlyBillLabel
+            // 
+            this.totYearlyBillLabel.AutoSize = true;
+            this.totYearlyBillLabel.Location = new System.Drawing.Point(6, 110);
+            this.totYearlyBillLabel.Name = "totYearlyBillLabel";
+            this.totYearlyBillLabel.Size = new System.Drawing.Size(130, 18);
+            this.totYearlyBillLabel.TabIndex = 0;
+            this.totYearlyBillLabel.Text = "Total Yearly Bills:";
             // 
             // monthlyDataGridView
             // 
@@ -128,6 +198,59 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Yearly:";
             // 
+            // yearlyDataGridView
+            // 
+            this.yearlyDataGridView.AllowUserToOrderColumns = true;
+            this.yearlyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.yearlyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.yearlyIdColumn,
+            this.yearlyDescriptionColumn,
+            this.yearlyCatColumn,
+            this.yearlyAmtColumn});
+            this.yearlyDataGridView.Location = new System.Drawing.Point(6, 24);
+            this.yearlyDataGridView.MultiSelect = false;
+            this.yearlyDataGridView.Name = "yearlyDataGridView";
+            this.yearlyDataGridView.RowHeadersVisible = false;
+            this.yearlyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.yearlyDataGridView.Size = new System.Drawing.Size(268, 220);
+            this.yearlyDataGridView.TabIndex = 6;
+            // 
+            // yearlyIdColumn
+            // 
+            this.yearlyIdColumn.HeaderText = "Id";
+            this.yearlyIdColumn.Name = "yearlyIdColumn";
+            this.yearlyIdColumn.Width = 20;
+            // 
+            // yearlyDescriptionColumn
+            // 
+            this.yearlyDescriptionColumn.HeaderText = "Description";
+            this.yearlyDescriptionColumn.Name = "yearlyDescriptionColumn";
+            this.yearlyDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.yearlyDescriptionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // yearlyCatColumn
+            // 
+            this.yearlyCatColumn.HeaderText = "Cat*";
+            this.yearlyCatColumn.Name = "yearlyCatColumn";
+            this.yearlyCatColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.yearlyCatColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.yearlyCatColumn.Width = 35;
+            // 
+            // yearlyAmtColumn
+            // 
+            this.yearlyAmtColumn.HeaderText = "Amount";
+            this.yearlyAmtColumn.Name = "yearlyAmtColumn";
+            // 
+            // removeYearlyButton
+            // 
+            this.removeYearlyButton.Image = ((System.Drawing.Image)(resources.GetObject("removeYearlyButton.Image")));
+            this.removeYearlyButton.Location = new System.Drawing.Point(242, 250);
+            this.removeYearlyButton.Name = "removeYearlyButton";
+            this.removeYearlyButton.Size = new System.Drawing.Size(32, 32);
+            this.removeYearlyButton.TabIndex = 9;
+            this.removeYearlyButton.UseVisualStyleBackColor = true;
+            this.removeYearlyButton.Click += new System.EventHandler(this.removeYearlyButton_Click);
+            // 
             // addYearlyButton
             // 
             this.addYearlyButton.Image = ((System.Drawing.Image)(resources.GetObject("addYearlyButton.Image")));
@@ -150,6 +273,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Monthly:";
             // 
+            // removeMonthlyButton
+            // 
+            this.removeMonthlyButton.Image = ((System.Drawing.Image)(resources.GetObject("removeMonthlyButton.Image")));
+            this.removeMonthlyButton.Location = new System.Drawing.Point(242, 250);
+            this.removeMonthlyButton.Name = "removeMonthlyButton";
+            this.removeMonthlyButton.Size = new System.Drawing.Size(32, 32);
+            this.removeMonthlyButton.TabIndex = 5;
+            this.removeMonthlyButton.UseVisualStyleBackColor = true;
+            this.removeMonthlyButton.Click += new System.EventHandler(this.removeMonthlyButton_Click);
+            // 
             // addMonthlyButton
             // 
             this.addMonthlyButton.Image = ((System.Drawing.Image)(resources.GetObject("addMonthlyButton.Image")));
@@ -171,63 +304,6 @@
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Wanted:";
-            // 
-            // addWantedButton
-            // 
-            this.addWantedButton.Image = ((System.Drawing.Image)(resources.GetObject("addWantedButton.Image")));
-            this.addWantedButton.Location = new System.Drawing.Point(210, 250);
-            this.addWantedButton.Name = "addWantedButton";
-            this.addWantedButton.Size = new System.Drawing.Size(32, 32);
-            this.addWantedButton.TabIndex = 3;
-            this.addWantedButton.UseVisualStyleBackColor = true;
-            this.addWantedButton.Click += new System.EventHandler(this.addWantedButton_Click);
-            // 
-            // removeMonthlyButton
-            // 
-            this.removeMonthlyButton.Image = ((System.Drawing.Image)(resources.GetObject("removeMonthlyButton.Image")));
-            this.removeMonthlyButton.Location = new System.Drawing.Point(242, 250);
-            this.removeMonthlyButton.Name = "removeMonthlyButton";
-            this.removeMonthlyButton.Size = new System.Drawing.Size(32, 32);
-            this.removeMonthlyButton.TabIndex = 5;
-            this.removeMonthlyButton.UseVisualStyleBackColor = true;
-            this.removeMonthlyButton.Click += new System.EventHandler(this.removeMonthlyButton_Click);
-            // 
-            // removeWantedButton
-            // 
-            this.removeWantedButton.Image = ((System.Drawing.Image)(resources.GetObject("removeWantedButton.Image")));
-            this.removeWantedButton.Location = new System.Drawing.Point(248, 250);
-            this.removeWantedButton.Name = "removeWantedButton";
-            this.removeWantedButton.Size = new System.Drawing.Size(32, 32);
-            this.removeWantedButton.TabIndex = 6;
-            this.removeWantedButton.UseVisualStyleBackColor = true;
-            this.removeWantedButton.Click += new System.EventHandler(this.removeWantedButton_Click);
-            // 
-            // removeYearlyButton
-            // 
-            this.removeYearlyButton.Image = ((System.Drawing.Image)(resources.GetObject("removeYearlyButton.Image")));
-            this.removeYearlyButton.Location = new System.Drawing.Point(242, 250);
-            this.removeYearlyButton.Name = "removeYearlyButton";
-            this.removeYearlyButton.Size = new System.Drawing.Size(32, 32);
-            this.removeYearlyButton.TabIndex = 9;
-            this.removeYearlyButton.UseVisualStyleBackColor = true;
-            this.removeYearlyButton.Click += new System.EventHandler(this.removeYearlyButton_Click);
-            // 
-            // yearlyDataGridView
-            // 
-            this.yearlyDataGridView.AllowUserToOrderColumns = true;
-            this.yearlyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.yearlyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.yearlyIdColumn,
-            this.yearlyDescriptionColumn,
-            this.yearlyCatColumn,
-            this.yearlyAmountColumn});
-            this.yearlyDataGridView.Location = new System.Drawing.Point(6, 24);
-            this.yearlyDataGridView.MultiSelect = false;
-            this.yearlyDataGridView.Name = "yearlyDataGridView";
-            this.yearlyDataGridView.RowHeadersVisible = false;
-            this.yearlyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.yearlyDataGridView.Size = new System.Drawing.Size(268, 220);
-            this.yearlyDataGridView.TabIndex = 6;
             // 
             // wantedDataGridView
             // 
@@ -272,31 +348,25 @@
             this.wantedAmtColumn.HeaderText = "Amount";
             this.wantedAmtColumn.Name = "wantedAmtColumn";
             // 
-            // yearlyAmountColumn
+            // removeWantedButton
             // 
-            this.yearlyAmountColumn.HeaderText = "Amount";
-            this.yearlyAmountColumn.Name = "yearlyAmountColumn";
+            this.removeWantedButton.Image = ((System.Drawing.Image)(resources.GetObject("removeWantedButton.Image")));
+            this.removeWantedButton.Location = new System.Drawing.Point(248, 250);
+            this.removeWantedButton.Name = "removeWantedButton";
+            this.removeWantedButton.Size = new System.Drawing.Size(32, 32);
+            this.removeWantedButton.TabIndex = 6;
+            this.removeWantedButton.UseVisualStyleBackColor = true;
+            this.removeWantedButton.Click += new System.EventHandler(this.removeWantedButton_Click);
             // 
-            // yearlyCatColumn
+            // addWantedButton
             // 
-            this.yearlyCatColumn.HeaderText = "Cat*";
-            this.yearlyCatColumn.Name = "yearlyCatColumn";
-            this.yearlyCatColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.yearlyCatColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.yearlyCatColumn.Width = 35;
-            // 
-            // yearlyDescriptionColumn
-            // 
-            this.yearlyDescriptionColumn.HeaderText = "Description";
-            this.yearlyDescriptionColumn.Name = "yearlyDescriptionColumn";
-            this.yearlyDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.yearlyDescriptionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // yearlyIdColumn
-            // 
-            this.yearlyIdColumn.HeaderText = "Id";
-            this.yearlyIdColumn.Name = "yearlyIdColumn";
-            this.yearlyIdColumn.Width = 20;
+            this.addWantedButton.Image = ((System.Drawing.Image)(resources.GetObject("addWantedButton.Image")));
+            this.addWantedButton.Location = new System.Drawing.Point(210, 250);
+            this.addWantedButton.Name = "addWantedButton";
+            this.addWantedButton.Size = new System.Drawing.Size(32, 32);
+            this.addWantedButton.TabIndex = 3;
+            this.addWantedButton.UseVisualStyleBackColor = true;
+            this.addWantedButton.Click += new System.EventHandler(this.addWantedButton_Click);
             // 
             // Main
             // 
@@ -315,11 +385,13 @@
             this.Padding = new System.Windows.Forms.Padding(10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Savings";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyDataGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.yearlyDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.yearlyDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wantedDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -351,7 +423,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn yearlyIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearlyDescriptionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearlyCatColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yearlyAmountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearlyAmtColumn;
+        private System.Windows.Forms.Label wantedTotalLabel;
+        private System.Windows.Forms.Label totWantedLabel;
+        private System.Windows.Forms.Label monthlyTotalLabel;
+        private System.Windows.Forms.Label yearlyTotalLabel;
+        private System.Windows.Forms.Label totMonthlyBillsLabel;
+        private System.Windows.Forms.Label totYearlyBillLabel;
     }
 }
 

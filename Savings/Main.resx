@@ -129,19 +129,30 @@
   <metadata name="monthlyAmtColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="monthlyIdColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="yearlyIdColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="monthlyDescriptionColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="yearlyDescriptionColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="monthlyCatColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="yearlyCatColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="monthlyAmtColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="yearlyAmtColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="removeYearlyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAT9JREFUSEu1
+        1QFRxjAMBeBJQAISkIIEHIAjcAAOwAE4AAfgAPL1lv/Yv7Vso3t3765rk5e2SdbhD1wGb4OPwdfg90hj
+        c9bYbAan+2AKfgRfgg8jjc3lOtuL4CpcBz+DHIldBWuwxoYtH75N3AQZvwVbwudgy4cvjUWIzsDxVx/3
+        F/hkkNlJ3LkjMtgjnsggtCY6eY9brqUGGrRoFtj9ZKIDcsOlhO/Gjx67T+QpSsKfgmq6N76CtEtSVE5v
+        0NTx1ftXas8rudRgmYdmALtYw2aAI6+IdknEu0FnnJJ8eJke3miQEz1OkbufbFgkd6Zu//uzo0FrpqPU
+        RN4bJMVpLJVtQT44DLdcF9sUrz44CdEdkbG3thXIWr7dfKo7P4ecZOJRn/glEEPjfLeR7a7cCaRPNIyu
+        TEFjc9ZOpTjHMPwAr7998+kuag0AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="addYearlyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -152,6 +163,17 @@
         ipyE/bB4iOwAUc6DlkAT7XqWia6jYo/sA6KcBy2Bg3a9MAxGR3GIbOoDOMI4aNdbeYoKh8gmPQDQFGjX
         q78NCthQ1ryKGt+Gj1Ez2ngZNx7t/AekL1H6Jqcf09yLZoG8V4UFc192lsx7XbuivA9OH7jOhCkyeO4n
         sw9e9yTno++RPfi3pSu/zKCZYcLB1r4AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="removeMonthlyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAT9JREFUSEu1
+        1QFRxjAMBeBJQAISkIIEHIAjcAAOwAE4AAfgAPL1lv/Yv7Vso3t3765rk5e2SdbhD1wGb4OPwdfg90hj
+        c9bYbAan+2AKfgRfgg8jjc3lOtuL4CpcBz+DHIldBWuwxoYtH75N3AQZvwVbwudgy4cvjUWIzsDxVx/3
+        F/hkkNlJ3LkjMtgjnsggtCY6eY9brqUGGrRoFtj9ZKIDcsOlhO/Gjx67T+QpSsKfgmq6N76CtEtSVE5v
+        0NTx1ftXas8rudRgmYdmALtYw2aAI6+IdknEu0FnnJJ8eJke3miQEz1OkbufbFgkd6Zu//uzo0FrpqPU
+        RN4bJMVpLJVtQT44DLdcF9sUrz44CdEdkbG3thXIWr7dfKo7P4ecZOJRn/glEEPjfLeR7a7cCaRPNIyu
+        TEFjc9ZOpTjHMPwAr7998+kuag0AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="addMonthlyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -201,64 +223,6 @@
         sw9e9yTno++RPfi3pSu/zKCZYcLB1r4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="removeMonthlyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAE/SURBVEhLtdUBUcYwDAXgSUACEpCCBByAI3AADsABOAAH4ADy9Zb/2L+1bKN7d++ua5OXtknW
-        4Q9cBm+Dj8HX4PdIY3PW2GwGp/tgCn4EX4IPI43N5Trbi+AqXAc/gxyJXQVrsMaGLR++TdwEGb8FW8Ln
-        YMuHL41FiM7A8Vcf9xf4ZJDZSdy5IzLYI57IILQmOnmPW66lBhq0aBbY/WSiA3LDpYTvxo8eu0/kKUrC
-        n4Jquje+grRLUlROb9DU8dX7V2rPK7nUYJmHZgC7WMNmgCOviHZJxLtBZ5ySfHiZHt5okBM9TpG7n2xY
-        JHembv/7s6NBa6aj1ETeGyTFaSyVbUE+OAy3XBfbFK8+OAnRHZGxt7YVyFq+3XyqOz+HnGTiUZ/4JRBD
-        43y3ke2u3AmkTzSMrkxBY3PWTqU4xzD8AK+/ffPpLmoNAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="removeYearlyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAT9JREFUSEu1
-        1QFRxjAMBeBJQAISkIIEHIAjcAAOwAE4AAfgAPL1lv/Yv7Vso3t3765rk5e2SdbhD1wGb4OPwdfg90hj
-        c9bYbAan+2AKfgRfgg8jjc3lOtuL4CpcBz+DHIldBWuwxoYtH75N3AQZvwVbwudgy4cvjUWIzsDxVx/3
-        F/hkkNlJ3LkjMtgjnsggtCY6eY9brqUGGrRoFtj9ZKIDcsOlhO/Gjx67T+QpSsKfgmq6N76CtEtSVE5v
-        0NTx1ftXas8rudRgmYdmALtYw2aAI6+IdknEu0FnnJJ8eJke3miQEz1OkbufbFgkd6Zu//uzo0FrpqPU
-        RN4bJMVpLJVtQT44DLdcF9sUrz44CdEdkbG3thXIWr7dfKo7P4ecZOJRn/glEEPjfLeR7a7cCaRPNIyu
-        TEFjc9ZOpTjHMPwAr7998+kuag0AAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="yearlyIdColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="yearlyDescriptionColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="yearlyCatColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="yearlyAmountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="wantedIdColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="wantedDescriptionColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="wantedCatColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="wantedAmtColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="yearlyAmountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="yearlyCatColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="yearlyDescriptionColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="yearlyIdColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIABwMwAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAMzdJ

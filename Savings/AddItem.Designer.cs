@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItem));
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.amountTextBox = new System.Windows.Forms.TextBox();
@@ -36,17 +37,21 @@
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // descriptionTextBox
             // 
             resources.ApplyResources(this.descriptionTextBox, "descriptionTextBox");
             this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.TextChanged += new System.EventHandler(this.descriptionTextBox_TextChanged);
             // 
             // amountTextBox
             // 
             resources.ApplyResources(this.amountTextBox, "amountTextBox");
             this.amountTextBox.Name = "amountTextBox";
+            this.amountTextBox.TextChanged += new System.EventHandler(this.amountTextBox_TextChanged);
             // 
             // descriptionText
             // 
@@ -82,6 +87,11 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            resources.ApplyResources(this.errorProvider1, "errorProvider1");
+            // 
             // AddItem
             // 
             resources.ApplyResources(this, "$this");
@@ -96,6 +106,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddItem";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +121,6 @@
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

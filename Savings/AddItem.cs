@@ -8,18 +8,59 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using Savings;
 
 namespace WindowsFormsApplication1
 {
     public partial class AddItem : Form
     {
+        #region Parameters?
+
         int cat;
         private Main mainForm;
+
+        #endregion
+
+        #region Constructor
 
         public AddItem(Main form)
         {
             InitializeComponent();
+            SetErrorProviders();
+
             mainForm = form;
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void SetErrorProviders()
+        {
+            errorProvider1.Clear();
+            if (descriptionTextBox.Text == "")
+            {
+                errorProvider1.SetIconAlignment(descriptionTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+                errorProvider1.SetError(descriptionTextBox, "Please enter a description.");
+                addButton.Enabled = false;
+            }
+            else if (categoryComboBox.SelectedIndex == -1)
+            {
+                errorProvider1.SetIconAlignment(categoryComboBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+                errorProvider1.SetError(categoryComboBox, "Please select a category.");
+                addButton.Enabled = false;
+            }
+            else if (amountTextBox.Text == "")
+            {
+                errorProvider1.SetIconAlignment(amountTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+                errorProvider1.SetError(amountTextBox, "Please enter an amount.");
+                addButton.Enabled = false;
+            }
+            else
+            {
+                errorProvider1.Clear();
+                addButton.Enabled = true;
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -31,7 +72,7 @@ namespace WindowsFormsApplication1
                     case "Monthly":
                         try
                         {
-                            using (SQLiteConnection con = new SQLiteConnection(Main.connectionString))
+                            using (SQLiteConnection con = new SQLiteConnection(Variables.dataPath))
                             {
                                 SQLiteCommand cmd = new SQLiteCommand();
                                 cmd.CommandText = @"INSERT INTO Monthly (Active, Description, Category, Amount) VALUES (@active,@description,@category,@amount) ";
@@ -62,7 +103,7 @@ namespace WindowsFormsApplication1
                     case "Yearly":
                         try
                         {
-                            using (SQLiteConnection con = new SQLiteConnection(Main.connectionString))
+                            using (SQLiteConnection con = new SQLiteConnection(Variables.dataPath))
                             {
                                 SQLiteCommand cmd = new SQLiteCommand();
                                 cmd.CommandText = @"INSERT INTO Yearly (Active, Description, Category, Amount) VALUES (@active,@description,@category,@amount) ";
@@ -93,7 +134,7 @@ namespace WindowsFormsApplication1
                     case "Wanted":
                         try
                         {
-                            using (SQLiteConnection con = new SQLiteConnection(Main.connectionString))
+                            using (SQLiteConnection con = new SQLiteConnection(Variables.dataPath))
                             {
                                 SQLiteCommand cmd = new SQLiteCommand();
                                 cmd.CommandText = @"INSERT INTO Wanted (Active, Description, Category, Amount) VALUES (@active,@description,@category,@amount) ";
@@ -133,8 +174,13 @@ namespace WindowsFormsApplication1
             }
         }
 
+        #endregion
+
+        #region Events
+
         private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SetErrorProviders();
             switch (categoryComboBox.SelectedText)
             {
                 case "1 - Critical":
@@ -159,5 +205,17 @@ namespace WindowsFormsApplication1
             }
 
         }
+
+        private void descriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SetErrorProviders();
+        }
+
+        private void amountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SetErrorProviders();
+        }
+
+        #endregion
     }
 }

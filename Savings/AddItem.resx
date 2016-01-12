@@ -196,16 +196,16 @@
     <value>NoControl</value>
   </data>
   <data name="amountText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 62</value>
+    <value>14, 62</value>
   </data>
   <data name="amountText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
+    <value>58, 13</value>
   </data>
   <data name="amountText.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="amountText.Text" xml:space="preserve">
-    <value>Amount</value>
+    <value>Amount ($)</value>
   </data>
   <data name="&gt;&gt;amountText.Name" xml:space="preserve">
     <value>amountText</value>
@@ -303,6 +303,9 @@
   <data name="&gt;&gt;addButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -397,10 +400,40 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Add Item</value>
   </data>
+  <data name="&gt;&gt;errorProvider1.Name" xml:space="preserve">
+    <value>errorProvider1</value>
+  </data>
+  <data name="&gt;&gt;errorProvider1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AddItem</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="errorProvider1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAMED3IDVC9JA2QvTQNkP0/zZD9P82QvTQNUL0kDBA9yAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAANUL0kDZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zZD9P82Q/T/NUL0kAAA
+        AAAAAAAAAAAAAAAAAAAAAAAANkL00DZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zZD
+        9P82QvTQAAAAAAAAAAAAAAAANUL0kDZD9P82Q/T/NkP0/zZD9P82Q/T/MED3IDBA9yA2Q/T/NkP0/zZD
+        9P82Q/T/NkP0/zVC9JAAAAAAMED3IDZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zBA9yAwQPcgNkP0/zZD
+        9P82Q/T/NkP0/zZD9P82Q/T/MED3IDVC9JA2Q/T/NkP0/zZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zZD
+        9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zVC9JA2QvTQNkP0/zZD9P82Q/T/NkP0/zZD9P82Q/T/NULz7zVC
+        8+82Q/T/NkP0/zZD9P82Q/T/NkP0/zZD9P82QvTQNkP0/zZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zRC
+        9HA2QvOANkP0/zZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zZD
+        9P81QPQwNETzQDZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zZD9P82QvTQNkP0/zZD9P82Q/T/NkP0/zZD
+        9P82Q/T/AAAAAAAAAAA2Q/T/NkP0/zZD9P82Q/T/NkP0/zZD9P81Q/TPNUL0kDZD9P82Q/T/NkP0/zZD
+        9P82Q/T/NULzwAAAAAAAAAAANkL00DZD9P82Q/T/NkP0/zZD9P82Q/T/NUL0kDBA9yA2Q/T/NkP0/zZD
+        9P82Q/T/NkP0/zVC88AAAAAAAAAAADVC88A2Q/T/NkP0/zZD9P82Q/T/NkP0/zBA9yAAAAAANUL0kDZD
+        9P82Q/T/NkP0/zZD9P82QvTgAAAAAAAAAAA2QvTgNkP0/zZD9P82Q/T/NkP0/zVC9JAAAAAAAAAAAAAA
+        AAA2QvTQNkP0/zZD9P82Q/T/NkP0/zZC9OA2QvTgNkP0/zZD9P82Q/T/NkP0/zVD9M8AAAAAAAAAAAAA
+        AAAAAAAAAAAAADVC9JA2Q/T/NkP0/zZD9P82Q/T/NkP0/zZD9P82Q/T/NkP0/zVC9I8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAMED3IDVC9I81Q/TPNkP0/zZD9P81Q/TPNUL0jzBA9yAAAAAAAAAAAAAA
+        AAAAAAAA8A8AAOAHAADAAwAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAgYEAAMAD
+        AADgBwAA8A8AAA==
+</value>
   </data>
 </root>
