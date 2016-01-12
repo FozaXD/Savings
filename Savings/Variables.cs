@@ -9,5 +9,8 @@ namespace Savings
     class Variables
     {
         public static string dataPath = "";
+
+        //Constants
+        public static string connectionString = @" Data Source =";
     }
 }

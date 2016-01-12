@@ -16,9 +16,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Main : Form
     {
-        private string connectionString = @" Data Source =";
         public static string addType;
-        public string path;
         int sumYearly = 0;
         int sumMonthly = 0;
         int sumWanted = 0;
@@ -26,34 +24,19 @@ namespace WindowsFormsApplication1
         public Main()
         {
             InitializeComponent();
-            GetDatabasePath();
+
+            Startup1();
+         
             DrawMonthlyDataGridView();
             DrawYearlyDataGridView();
             DrawWantedDataGridView();
             GetTotals();
         }
 
-        public void GetDatabasePath()
+        public void Startup1()
         {
-            DialogResult dr = new DialogResult();
-
-            DatabasePath dataBasePath = new DatabasePath();
-            dr = dataBasePath.ShowDialog();
-            if (dr == DialogResult.OK)
-            {
-                path = dataBasePath.DataFilePath;
-                SetDatabasePath();    
-            }
-            else
-            {
-                MessageBox.Show("The file path for the database is invalid, goodbye.", "Invalid File Path", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
-        }
-
-        public void SetDatabasePath()
-        {
-            Variables.dataPath = connectionString + path;
+            StartupWindow startup = new StartupWindow();
+            var dialogResult = startup.ShowDialog();
         }
 
         public void DrawMonthlyDataGridView()
@@ -159,6 +142,8 @@ namespace WindowsFormsApplication1
             wantedTotalLabel.Text = sumWanted.ToString("C", CultureInfo.CurrentCulture);
         }
 
+        #region Buttons
+
         private void RemoveMonthlyRecord()
         {
             int selectedIndex = monthlyDataGridView.SelectedRows[0].Index;
@@ -228,7 +213,6 @@ namespace WindowsFormsApplication1
             GetTotals();
         }
 
-        #region Buttons
         private void addWantedButton_Click(object sender, EventArgs e)
         {
             // Create a new instance of the AddItem class
