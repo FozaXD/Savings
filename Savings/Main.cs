@@ -154,6 +154,7 @@ namespace WindowsFormsApplication1
             monthlyTotalLabel.Visible = false;
             wantedTotalLabel.Visible = false;
             overallTotal.Visible = false;
+            yearlyMonthBills.Visible = false;
 
             for (int i = 0; i < yearlyDataGridView.Rows.Count; ++i)
             {
@@ -175,15 +176,19 @@ namespace WindowsFormsApplication1
 
         public void SetTotalLabels()
         {
+            decimal twelveMonthMonthly = decimal.Multiply(sumMonthly, 12);
+            overallTotal.Text = decimal.Add(decimal.Add(sumYearly, twelveMonthMonthly), sumWanted).ToString("C", CultureInfo.CurrentCulture);
+
             yearlyTotalLabel.Text = sumYearly.ToString("C", CultureInfo.CurrentCulture);
             monthlyTotalLabel.Text = sumMonthly.ToString("C", CultureInfo.CurrentCulture);
             wantedTotalLabel.Text = sumWanted.ToString("C", CultureInfo.CurrentCulture);
+            yearlyMonthBills.Text = twelveMonthMonthly.ToString("C", CultureInfo.CurrentCulture);
 
-            overallTotal.Text = decimal.Add(decimal.Add(sumYearly, sumMonthly), sumWanted).ToString("C", CultureInfo.CurrentCulture);
             yearlyTotalLabel.Visible = true;
             monthlyTotalLabel.Visible = true;
             wantedTotalLabel.Visible = true;
             overallTotal.Visible = true;
+            yearlyMonthBills.Visible = true;
         }
 
         #region Buttons
