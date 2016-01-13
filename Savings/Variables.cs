@@ -12,5 +12,6 @@ namespace Savings
 
         //Constants
         public static string connectionString = @" Data Source =";
+        public static string accountName = "";
     }
 }

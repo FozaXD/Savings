@@ -52,6 +52,7 @@
             resources.ApplyResources(this.amountTextBox, "amountTextBox");
             this.amountTextBox.Name = "amountTextBox";
             this.amountTextBox.TextChanged += new System.EventHandler(this.amountTextBox_TextChanged);
+            this.amountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.amountTextBox_KeyPress);
             // 
             // descriptionText
             // 

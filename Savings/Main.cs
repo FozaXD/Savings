@@ -17,20 +17,32 @@ namespace WindowsFormsApplication1
     public partial class Main : Form
     {
         public static string addType;
-        int sumYearly = 0;
-        int sumMonthly = 0;
-        int sumWanted = 0;
+        decimal sumYearly = 0.00m;
+        decimal sumMonthly = 0.00m;
+        decimal sumWanted = 0.00m;
 
         public Main()
         {
             InitializeComponent();
 
             Startup1();
-         
-            DrawMonthlyDataGridView();
+
+            Draw();
+            DrawUserInfo();
+        }
+
+        public void Draw()
+        {
             DrawYearlyDataGridView();
+            DrawMonthlyDataGridView();
             DrawWantedDataGridView();
             GetTotals();
+        }
+
+        public void DrawUserInfo()
+        {
+            accountNameLabel.Text = Variables.accountName;
+            accountNameLabel.Visible = true;
         }
 
         public void Startup1()
@@ -60,7 +72,14 @@ namespace WindowsFormsApplication1
             con.Close();
             //Set amount column to currency format
             monthlyDataGridView.Columns["monthlyAmtColumn"].DefaultCellStyle.Format = "c";
-            GetTotals();
+            if (monthlyDataGridView.Rows.Count != 0)
+            {
+                removeMonthlyButton.Enabled = true;
+            }
+            else
+            {
+                removeMonthlyButton.Enabled = false;
+            }
         }
 
         public void DrawYearlyDataGridView()
@@ -84,7 +103,14 @@ namespace WindowsFormsApplication1
             con.Close();
             //Set amount column to currency format
             yearlyDataGridView.Columns["yearlyAmtColumn"].DefaultCellStyle.Format = "c";
-            GetTotals();
+            if (yearlyDataGridView.Rows.Count != 0)
+            {
+                removeYearlyButton.Enabled = true;
+            }
+            else
+            {
+                removeYearlyButton.Enabled = false;
+            }
         }
 
         public void DrawWantedDataGridView()
@@ -108,28 +134,40 @@ namespace WindowsFormsApplication1
             con.Close();
             //Set amount column to currency format
             wantedDataGridView.Columns["wantedAmtColumn"].DefaultCellStyle.Format = "c";
-            GetTotals();
+            if (wantedDataGridView.Rows.Count != 0)
+            {
+                removeWantedButton.Enabled = true;
+            }
+            else
+            {
+                removeWantedButton.Enabled = false;
+            }
         }
 
         public void GetTotals()
         {
-            sumYearly = 0;
-            sumMonthly = 0;
-            sumWanted = 0;
+            sumYearly = 0.00m;
+            sumMonthly = 0.00m;
+            sumWanted = 0.00m;
+
+            yearlyTotalLabel.Visible = false;
+            monthlyTotalLabel.Visible = false;
+            wantedTotalLabel.Visible = false;
+            overallTotal.Visible = false;
 
             for (int i = 0; i < yearlyDataGridView.Rows.Count; ++i)
             {
-                sumYearly += Convert.ToInt32(yearlyDataGridView.Rows[i].Cells[3].Value);
+                sumYearly += Convert.ToDecimal(yearlyDataGridView.Rows[i].Cells[3].Value);
             }
 
-            for (int i = 0; i < monthlyDataGridView.Rows.Count; ++i)
+            for (int e = 0; e < monthlyDataGridView.Rows.Count; ++e)
             {
-                sumMonthly += Convert.ToInt32(monthlyDataGridView.Rows[i].Cells[3].Value);
+                sumMonthly += Convert.ToDecimal(monthlyDataGridView.Rows[e].Cells[3].Value);
             }
 
-            for (int i = 0; i < wantedDataGridView.Rows.Count; ++i)
+            for (int f = 0; f < wantedDataGridView.Rows.Count; ++f)
             {
-                sumWanted += Convert.ToInt32(wantedDataGridView.Rows[i].Cells[3].Value);
+                sumWanted += Convert.ToDecimal(wantedDataGridView.Rows[f].Cells[3].Value);
             }
 
             SetTotalLabels();
@@ -140,6 +178,12 @@ namespace WindowsFormsApplication1
             yearlyTotalLabel.Text = sumYearly.ToString("C", CultureInfo.CurrentCulture);
             monthlyTotalLabel.Text = sumMonthly.ToString("C", CultureInfo.CurrentCulture);
             wantedTotalLabel.Text = sumWanted.ToString("C", CultureInfo.CurrentCulture);
+
+            overallTotal.Text = decimal.Add(decimal.Add(sumYearly, sumMonthly), sumWanted).ToString("C", CultureInfo.CurrentCulture);
+            yearlyTotalLabel.Visible = true;
+            monthlyTotalLabel.Visible = true;
+            wantedTotalLabel.Visible = true;
+            overallTotal.Visible = true;
         }
 
         #region Buttons
@@ -164,7 +208,6 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(ex.Message);
             }
-            GetTotals();
         }
 
         private void RemoveYearlyRecord()
@@ -187,7 +230,6 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(ex.Message);
             }
-            GetTotals();
         }
 
         private void RemoveWantedRecord()
@@ -200,7 +242,7 @@ namespace WindowsFormsApplication1
                 con.Open();
                 using (SQLiteCommand cmd = con.CreateCommand())
                 {
-                    cmd.CommandText = String.Format("DELETE FROM Yearly WHERE Id=" + int.Parse(wantedDataGridView[0, selectedIndex].Value.ToString()), con);
+                    cmd.CommandText = String.Format("DELETE FROM Wanted WHERE Id=" + int.Parse(wantedDataGridView[0, selectedIndex].Value.ToString()), con);
                     cmd.ExecuteNonQuery();
                 }
                 con.Close();
@@ -210,7 +252,6 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(ex.Message);
             }
-            GetTotals();
         }
 
         private void addWantedButton_Click(object sender, EventArgs e)
@@ -222,7 +263,8 @@ namespace WindowsFormsApplication1
             addType = "Wanted";
 
             // Show the AddItem form
-            addItemForm.Show();
+            addItemForm.ShowDialog();
+            Draw();
         }
 
         private void addMonthlyButton_Click(object sender, EventArgs e)
@@ -234,7 +276,8 @@ namespace WindowsFormsApplication1
             addType = "Monthly";
 
             // Show the AddItem form
-            addItemForm.Show();
+            addItemForm.ShowDialog();
+            Draw();
         }
 
         private void addYearlyButton_Click(object sender, EventArgs e)
@@ -246,7 +289,8 @@ namespace WindowsFormsApplication1
             addType = "Yearly";
 
             // Show the AddItem form
-            addItemForm.Show();
+            addItemForm.ShowDialog();
+            Draw();
         }
 
         private void removeMonthlyButton_Click(object sender, EventArgs e)
@@ -254,8 +298,8 @@ namespace WindowsFormsApplication1
             if (MessageBox.Show("Are you sure you wish to remove the selected record?", "Remove Record?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 RemoveMonthlyRecord();
-            }
-
+            }      
+            Draw();
         }
 
         private void removeYearlyButton_Click(object sender, EventArgs e)
@@ -264,21 +308,16 @@ namespace WindowsFormsApplication1
             {
                 RemoveYearlyRecord();
             }
+            Draw();
         }
 
         private void removeWantedButton_Click(object sender, EventArgs e)
         {
-            if (wantedDataGridView.Rows.Count != 0)
+            if (MessageBox.Show("Are you sure you wish to remove the selected record?", "Remove Record?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                if (MessageBox.Show("Are you sure you wish to remove the selected record?", "Remove Record?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    RemoveWantedRecord();
-                }
+                RemoveWantedRecord();
             }
-            else
-            {
-                MessageBox.Show("Trying to imploded the universe are we? I can't delete nothing.");
-            }
+            Draw();
         }
         #endregion
     }

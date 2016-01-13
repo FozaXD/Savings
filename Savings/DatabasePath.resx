@@ -120,11 +120,11 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tick.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACySURBVEhLYxgF6KD7sIcDlEl90H3Ic0H3Ya//XYe85kOFqAdghsMwVS1BN5yqluAyHIovQJWR
-        BwgZ3r/fQQCqlHRAsuHA8EroOuR5H0RDhXACsgxHVoTPEooNh2FslpAV5sBg+YBFMRgjW0J2hOLyAQyD
-        5ck1HAYIWYIHEzYcBsiwhHjDYYAES0g3HAaIsIR8w2EAjyWUGw4DWCyhnuEwgGQJ9Q2Hga6jXgY0M3wI
-        AAYGAHgczDzUCpuQAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAALJJREFUSEtj
+        GAXooPuwhwOUSX3QfchzQfdhr/9dh7zmQ4WoB2CGwzBVLUE3nKqW4DIcii9AlZEHCBnev99BAKqUdECy
+        4cDwSug65HkfREOFcAKyDEdWhM8Sig2HYWyWkBXmwGD5gEUxGCNbQnaE4vIBDIPlyTUcBghZggcTNhwG
+        yLCEeMNhgARLSDccBoiwhHzDYQCPJZQbDgNYLKGe4TCAZAn1DYeBrqNeBjQzfAgABgYAeBzMPNQKm5AA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="errorProviderDataPath.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

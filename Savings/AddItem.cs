@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using Savings;
+using System.Text.RegularExpressions;
 
 namespace WindowsFormsApplication1
 {
@@ -38,23 +39,21 @@ namespace WindowsFormsApplication1
         private void SetErrorProviders()
         {
             errorProvider1.Clear();
+            addButton.Enabled = false;
             if (descriptionTextBox.Text == "")
             {
                 errorProvider1.SetIconAlignment(descriptionTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
                 errorProvider1.SetError(descriptionTextBox, "Please enter a description.");
-                addButton.Enabled = false;
             }
             else if (categoryComboBox.SelectedIndex == -1)
             {
                 errorProvider1.SetIconAlignment(categoryComboBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
                 errorProvider1.SetError(categoryComboBox, "Please select a category.");
-                addButton.Enabled = false;
             }
             else if (amountTextBox.Text == "")
             {
                 errorProvider1.SetIconAlignment(amountTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
                 errorProvider1.SetError(amountTextBox, "Please enter an amount.");
-                addButton.Enabled = false;
             }
             else
             {
@@ -217,5 +216,20 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
+        private void amountTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (Char)Keys.Back)
+            {
+                if (e.KeyChar != '.')
+                {
+                    e.Handled = !char.IsNumber(e.KeyChar);
+                }
+            }
+            if (Regex.IsMatch(amountTextBox.Text, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

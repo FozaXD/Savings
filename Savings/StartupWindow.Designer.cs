@@ -57,15 +57,20 @@
             this.newAccountButton.Text = "New Account";
             this.newAccountButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.newAccountButton.UseVisualStyleBackColor = true;
+            this.newAccountButton.Click += new System.EventHandler(this.newAccountButton_Click);
             // 
             // StartupWindow
             // 
+            this.AcceptButton = this.newAccountButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 158);
             this.Controls.Add(this.existingAccountButton);
             this.Controls.Add(this.newAccountButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "StartupWindow";
             this.Padding = new System.Windows.Forms.Padding(25);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
