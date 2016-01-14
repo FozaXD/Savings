@@ -51,6 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(73, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 13);
@@ -59,27 +60,33 @@
             // 
             // openFileButton
             // 
+            this.openFileButton.BackColor = System.Drawing.Color.Silver;
+            this.openFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openFileButton.ForeColor = System.Drawing.Color.White;
             this.openFileButton.Location = new System.Drawing.Point(278, 23);
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Size = new System.Drawing.Size(65, 22);
             this.openFileButton.TabIndex = 1;
             this.openFileButton.Text = "Open";
-            this.openFileButton.UseVisualStyleBackColor = true;
+            this.openFileButton.UseVisualStyleBackColor = false;
             this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
             // 
             // setDataPathButton
             // 
+            this.setDataPathButton.BackColor = System.Drawing.Color.Silver;
+            this.setDataPathButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.setDataPathButton.ForeColor = System.Drawing.Color.White;
             this.setDataPathButton.Location = new System.Drawing.Point(278, 51);
             this.setDataPathButton.Name = "setDataPathButton";
             this.setDataPathButton.Size = new System.Drawing.Size(65, 23);
             this.setDataPathButton.TabIndex = 2;
             this.setDataPathButton.Text = "Set";
-            this.setDataPathButton.UseVisualStyleBackColor = true;
+            this.setDataPathButton.UseVisualStyleBackColor = false;
             this.setDataPathButton.Click += new System.EventHandler(this.setDataPathButton_Click);
             // 
             // tick
             // 
-            this.tick.BackColor = System.Drawing.SystemColors.Control;
+            this.tick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.tick.Enabled = false;
             this.tick.Image = ((System.Drawing.Image)(resources.GetObject("tick.Image")));
             this.tick.InitialImage = null;
@@ -100,6 +107,7 @@
             this.AcceptButton = this.setDataPathButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.ClientSize = new System.Drawing.Size(356, 87);
             this.Controls.Add(this.tick);
             this.Controls.Add(this.setDataPathButton);

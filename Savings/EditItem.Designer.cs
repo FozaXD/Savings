@@ -43,18 +43,22 @@
             // 
             // editButton
             // 
+            this.editButton.BackColor = System.Drawing.Color.Silver;
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.editButton.Location = new System.Drawing.Point(197, 82);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 23);
             this.editButton.TabIndex = 10;
             this.editButton.Text = "Edit";
-            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(23, 41);
             this.label1.Name = "label1";
@@ -80,6 +84,7 @@
             // amountText
             // 
             this.amountText.AutoSize = true;
+            this.amountText.ForeColor = System.Drawing.Color.White;
             this.amountText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.amountText.Location = new System.Drawing.Point(14, 68);
             this.amountText.Name = "amountText";
@@ -90,6 +95,7 @@
             // descriptionText
             // 
             this.descriptionText.AutoSize = true;
+            this.descriptionText.ForeColor = System.Drawing.Color.White;
             this.descriptionText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.descriptionText.Location = new System.Drawing.Point(12, 15);
             this.descriptionText.Name = "descriptionText";
@@ -120,8 +126,10 @@
             // 
             // EditItem
             // 
+            this.AcceptButton = this.editButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.ClientSize = new System.Drawing.Size(284, 111);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.label1);

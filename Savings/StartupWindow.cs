@@ -117,5 +117,13 @@ namespace Savings
                 
             }
         }
+
+        private void StartupWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Variables.dataPath == "")
+            {
+                Application.Exit();
+            }
+        }
     }
 }

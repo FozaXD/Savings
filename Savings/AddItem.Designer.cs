@@ -57,11 +57,13 @@
             // descriptionText
             // 
             resources.ApplyResources(this.descriptionText, "descriptionText");
+            this.descriptionText.ForeColor = System.Drawing.Color.White;
             this.descriptionText.Name = "descriptionText";
             // 
             // amountText
             // 
             resources.ApplyResources(this.amountText, "amountText");
+            this.amountText.ForeColor = System.Drawing.Color.White;
             this.amountText.Name = "amountText";
             // 
             // categoryComboBox
@@ -80,13 +82,16 @@
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Name = "label1";
             // 
             // addButton
             // 
+            this.addButton.BackColor = System.Drawing.Color.Silver;
             resources.ApplyResources(this.addButton, "addButton");
+            this.addButton.ForeColor = System.Drawing.Color.White;
             this.addButton.Name = "addButton";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // errorProvider1
@@ -96,8 +101,10 @@
             // 
             // AddItem
             // 
+            this.AcceptButton = this.addButton;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.categoryComboBox);

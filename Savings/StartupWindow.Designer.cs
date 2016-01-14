@@ -35,6 +35,9 @@
             // 
             // existingAccountButton
             // 
+            this.existingAccountButton.BackColor = System.Drawing.Color.Silver;
+            this.existingAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.existingAccountButton.ForeColor = System.Drawing.Color.White;
             this.existingAccountButton.Image = ((System.Drawing.Image)(resources.GetObject("existingAccountButton.Image")));
             this.existingAccountButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.existingAccountButton.Location = new System.Drawing.Point(173, 50);
@@ -43,11 +46,14 @@
             this.existingAccountButton.TabIndex = 1;
             this.existingAccountButton.Text = "Existing Account";
             this.existingAccountButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.existingAccountButton.UseVisualStyleBackColor = true;
+            this.existingAccountButton.UseVisualStyleBackColor = false;
             this.existingAccountButton.Click += new System.EventHandler(this.existingAccountButton_Click);
             // 
             // newAccountButton
             // 
+            this.newAccountButton.BackColor = System.Drawing.Color.Silver;
+            this.newAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newAccountButton.ForeColor = System.Drawing.Color.White;
             this.newAccountButton.Image = ((System.Drawing.Image)(resources.GetObject("newAccountButton.Image")));
             this.newAccountButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.newAccountButton.Location = new System.Drawing.Point(28, 50);
@@ -56,7 +62,7 @@
             this.newAccountButton.TabIndex = 0;
             this.newAccountButton.Text = "New Account";
             this.newAccountButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.newAccountButton.UseVisualStyleBackColor = true;
+            this.newAccountButton.UseVisualStyleBackColor = false;
             this.newAccountButton.Click += new System.EventHandler(this.newAccountButton_Click);
             // 
             // StartupWindow
@@ -64,6 +70,7 @@
             this.AcceptButton = this.newAccountButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.ClientSize = new System.Drawing.Size(326, 158);
             this.Controls.Add(this.existingAccountButton);
             this.Controls.Add(this.newAccountButton);
@@ -75,6 +82,7 @@
             this.Padding = new System.Windows.Forms.Padding(25);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome!";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartupWindow_FormClosing);
             this.ResumeLayout(false);
 
         }

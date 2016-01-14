@@ -279,6 +279,9 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="addButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="addButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>197, 82</value>
   </data>
