@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace Savings
 {
     partial class Main
     {
@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.yearlyMonthBills = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.overallTotal = new System.Windows.Forms.Label();
             this.overallTotalLabel = new System.Windows.Forms.Label();
@@ -65,7 +67,9 @@
             this.wantedAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.removeWantedButton = new System.Windows.Forms.Button();
             this.addWantedButton = new System.Windows.Forms.Button();
-            this.yearlyMonthBills = new System.Windows.Forms.Label();
+            this.monthlyContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.wantedContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.yearlyContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -97,6 +101,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Totals";
+            // 
+            // yearlyMonthBills
+            // 
+            this.yearlyMonthBills.AutoSize = true;
+            this.yearlyMonthBills.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearlyMonthBills.Location = new System.Drawing.Point(435, 80);
+            this.yearlyMonthBills.Name = "yearlyMonthBills";
+            this.yearlyMonthBills.Size = new System.Drawing.Size(118, 18);
+            this.yearlyMonthBills.TabIndex = 11;
+            this.yearlyMonthBills.Text = "yearlyMonthlyTotal";
+            this.yearlyMonthBills.Visible = false;
             // 
             // label2
             // 
@@ -218,30 +233,35 @@
             this.monthlyCatColumn,
             this.monthlyAmtColumn});
             this.monthlyDataGridView.Location = new System.Drawing.Point(6, 24);
-            this.monthlyDataGridView.MultiSelect = false;
             this.monthlyDataGridView.Name = "monthlyDataGridView";
+            this.monthlyDataGridView.ReadOnly = true;
             this.monthlyDataGridView.RowHeadersVisible = false;
             this.monthlyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.monthlyDataGridView.Size = new System.Drawing.Size(268, 220);
-            this.monthlyDataGridView.TabIndex = 0;
+            this.monthlyDataGridView.TabIndex = 7;
+            this.monthlyDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.monthlyDataGridView_CellMouseDown);
+            this.monthlyDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.monthlyDataGridView_MouseClick_1);
             // 
             // monthlyIdColumn
             // 
             this.monthlyIdColumn.HeaderText = "Id";
             this.monthlyIdColumn.Name = "monthlyIdColumn";
+            this.monthlyIdColumn.ReadOnly = true;
             this.monthlyIdColumn.Width = 25;
             // 
             // monthlyDescriptionColumn
             // 
             this.monthlyDescriptionColumn.HeaderText = "Description";
             this.monthlyDescriptionColumn.Name = "monthlyDescriptionColumn";
+            this.monthlyDescriptionColumn.ReadOnly = true;
             this.monthlyDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.monthlyDescriptionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // monthlyCatColumn
             // 
-            this.monthlyCatColumn.HeaderText = "Cat*";
+            this.monthlyCatColumn.HeaderText = "Category";
             this.monthlyCatColumn.Name = "monthlyCatColumn";
+            this.monthlyCatColumn.ReadOnly = true;
             this.monthlyCatColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.monthlyCatColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.monthlyCatColumn.Width = 40;
@@ -250,6 +270,7 @@
             // 
             this.monthlyAmtColumn.HeaderText = "Amount";
             this.monthlyAmtColumn.Name = "monthlyAmtColumn";
+            this.monthlyAmtColumn.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -266,6 +287,7 @@
             // yearlyDataGridView
             // 
             this.yearlyDataGridView.AllowUserToAddRows = false;
+            this.yearlyDataGridView.AllowUserToDeleteRows = false;
             this.yearlyDataGridView.AllowUserToOrderColumns = true;
             this.yearlyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.yearlyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -276,28 +298,34 @@
             this.yearlyDataGridView.Location = new System.Drawing.Point(6, 24);
             this.yearlyDataGridView.MultiSelect = false;
             this.yearlyDataGridView.Name = "yearlyDataGridView";
+            this.yearlyDataGridView.ReadOnly = true;
             this.yearlyDataGridView.RowHeadersVisible = false;
             this.yearlyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.yearlyDataGridView.Size = new System.Drawing.Size(268, 220);
-            this.yearlyDataGridView.TabIndex = 6;
+            this.yearlyDataGridView.TabIndex = 8;
+            this.yearlyDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.yearlyDataGridView_CellMouseDown);
+            this.yearlyDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.yearlyDataGridView_MouseClick);
             // 
             // yearlyIdColumn
             // 
             this.yearlyIdColumn.HeaderText = "Id";
             this.yearlyIdColumn.Name = "yearlyIdColumn";
+            this.yearlyIdColumn.ReadOnly = true;
             this.yearlyIdColumn.Width = 25;
             // 
             // yearlyDescriptionColumn
             // 
             this.yearlyDescriptionColumn.HeaderText = "Description";
             this.yearlyDescriptionColumn.Name = "yearlyDescriptionColumn";
+            this.yearlyDescriptionColumn.ReadOnly = true;
             this.yearlyDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.yearlyDescriptionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // yearlyCatColumn
             // 
-            this.yearlyCatColumn.HeaderText = "Cat*";
+            this.yearlyCatColumn.HeaderText = "Category";
             this.yearlyCatColumn.Name = "yearlyCatColumn";
+            this.yearlyCatColumn.ReadOnly = true;
             this.yearlyCatColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.yearlyCatColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.yearlyCatColumn.Width = 40;
@@ -306,6 +334,7 @@
             // 
             this.yearlyAmtColumn.HeaderText = "Amount";
             this.yearlyAmtColumn.Name = "yearlyAmtColumn";
+            this.yearlyAmtColumn.ReadOnly = true;
             // 
             // removeYearlyButton
             // 
@@ -314,7 +343,7 @@
             this.removeYearlyButton.Location = new System.Drawing.Point(242, 250);
             this.removeYearlyButton.Name = "removeYearlyButton";
             this.removeYearlyButton.Size = new System.Drawing.Size(32, 32);
-            this.removeYearlyButton.TabIndex = 9;
+            this.removeYearlyButton.TabIndex = 1;
             this.removeYearlyButton.UseVisualStyleBackColor = true;
             this.removeYearlyButton.Click += new System.EventHandler(this.removeYearlyButton_Click);
             // 
@@ -324,7 +353,7 @@
             this.addYearlyButton.Location = new System.Drawing.Point(204, 250);
             this.addYearlyButton.Name = "addYearlyButton";
             this.addYearlyButton.Size = new System.Drawing.Size(32, 32);
-            this.addYearlyButton.TabIndex = 5;
+            this.addYearlyButton.TabIndex = 0;
             this.addYearlyButton.UseVisualStyleBackColor = true;
             this.addYearlyButton.Click += new System.EventHandler(this.addYearlyButton_Click);
             // 
@@ -347,7 +376,7 @@
             this.removeMonthlyButton.Location = new System.Drawing.Point(242, 250);
             this.removeMonthlyButton.Name = "removeMonthlyButton";
             this.removeMonthlyButton.Size = new System.Drawing.Size(32, 32);
-            this.removeMonthlyButton.TabIndex = 5;
+            this.removeMonthlyButton.TabIndex = 3;
             this.removeMonthlyButton.UseVisualStyleBackColor = true;
             this.removeMonthlyButton.Click += new System.EventHandler(this.removeMonthlyButton_Click);
             // 
@@ -357,7 +386,7 @@
             this.addMonthlyButton.Location = new System.Drawing.Point(204, 250);
             this.addMonthlyButton.Name = "addMonthlyButton";
             this.addMonthlyButton.Size = new System.Drawing.Size(32, 32);
-            this.addMonthlyButton.TabIndex = 4;
+            this.addMonthlyButton.TabIndex = 2;
             this.addMonthlyButton.UseVisualStyleBackColor = true;
             this.addMonthlyButton.Click += new System.EventHandler(this.addMonthlyButton_Click);
             // 
@@ -386,28 +415,34 @@
             this.wantedDataGridView.Location = new System.Drawing.Point(6, 24);
             this.wantedDataGridView.MultiSelect = false;
             this.wantedDataGridView.Name = "wantedDataGridView";
+            this.wantedDataGridView.ReadOnly = true;
             this.wantedDataGridView.RowHeadersVisible = false;
             this.wantedDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.wantedDataGridView.Size = new System.Drawing.Size(274, 220);
             this.wantedDataGridView.TabIndex = 6;
+            this.wantedDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.wantedDataGridView_CellMouseDown);
+            this.wantedDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.wantedDataGridView_MouseClick);
             // 
             // wantedIdColumn
             // 
             this.wantedIdColumn.HeaderText = "Id";
             this.wantedIdColumn.Name = "wantedIdColumn";
+            this.wantedIdColumn.ReadOnly = true;
             this.wantedIdColumn.Width = 25;
             // 
             // wantedDescriptionColumn
             // 
             this.wantedDescriptionColumn.HeaderText = "Description";
             this.wantedDescriptionColumn.Name = "wantedDescriptionColumn";
+            this.wantedDescriptionColumn.ReadOnly = true;
             this.wantedDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.wantedDescriptionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // wantedCatColumn
             // 
-            this.wantedCatColumn.HeaderText = "Cat*";
+            this.wantedCatColumn.HeaderText = "Category";
             this.wantedCatColumn.Name = "wantedCatColumn";
+            this.wantedCatColumn.ReadOnly = true;
             this.wantedCatColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.wantedCatColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.wantedCatColumn.Width = 40;
@@ -416,6 +451,7 @@
             // 
             this.wantedAmtColumn.HeaderText = "Amount";
             this.wantedAmtColumn.Name = "wantedAmtColumn";
+            this.wantedAmtColumn.ReadOnly = true;
             this.wantedAmtColumn.Width = 106;
             // 
             // removeWantedButton
@@ -425,7 +461,7 @@
             this.removeWantedButton.Location = new System.Drawing.Point(248, 250);
             this.removeWantedButton.Name = "removeWantedButton";
             this.removeWantedButton.Size = new System.Drawing.Size(32, 32);
-            this.removeWantedButton.TabIndex = 6;
+            this.removeWantedButton.TabIndex = 5;
             this.removeWantedButton.UseVisualStyleBackColor = true;
             this.removeWantedButton.Click += new System.EventHandler(this.removeWantedButton_Click);
             // 
@@ -435,20 +471,27 @@
             this.addWantedButton.Location = new System.Drawing.Point(210, 250);
             this.addWantedButton.Name = "addWantedButton";
             this.addWantedButton.Size = new System.Drawing.Size(32, 32);
-            this.addWantedButton.TabIndex = 3;
+            this.addWantedButton.TabIndex = 4;
             this.addWantedButton.UseVisualStyleBackColor = true;
             this.addWantedButton.Click += new System.EventHandler(this.addWantedButton_Click);
             // 
-            // yearlyMonthBills
+            // monthlyContextMenu
             // 
-            this.yearlyMonthBills.AutoSize = true;
-            this.yearlyMonthBills.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearlyMonthBills.Location = new System.Drawing.Point(435, 80);
-            this.yearlyMonthBills.Name = "yearlyMonthBills";
-            this.yearlyMonthBills.Size = new System.Drawing.Size(118, 18);
-            this.yearlyMonthBills.TabIndex = 11;
-            this.yearlyMonthBills.Text = "yearlyMonthlyTotal";
-            this.yearlyMonthBills.Visible = false;
+            this.monthlyContextMenu.Name = "monthlyContextMenu";
+            this.monthlyContextMenu.Size = new System.Drawing.Size(61, 4);
+            this.monthlyContextMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.monthlyContextMenu_MouseClick);
+            // 
+            // wantedContextMenu
+            // 
+            this.wantedContextMenu.Name = "wantedContextMenu";
+            this.wantedContextMenu.Size = new System.Drawing.Size(61, 4);
+            this.wantedContextMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.wantedContextMenu_MouseClick);
+            // 
+            // yearlyContextMenu
+            // 
+            this.yearlyContextMenu.Name = "yearlyContextMenu";
+            this.yearlyContextMenu.Size = new System.Drawing.Size(61, 4);
+            this.yearlyContextMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.yearlyContextMenu_MouseClick);
             // 
             // Main
             // 
@@ -504,6 +547,9 @@
         private System.Windows.Forms.Label accountNameLabel;
         private System.Windows.Forms.Label overallTotal;
         private System.Windows.Forms.Label overallTotalLabel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label yearlyMonthBills;
+        private System.Windows.Forms.ContextMenuStrip monthlyContextMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyDescriptionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn monthlyCatColumn;
@@ -516,8 +562,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn wantedDescriptionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wantedCatColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wantedAmtColumn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label yearlyMonthBills;
+        private System.Windows.Forms.ContextMenuStrip wantedContextMenu;
+        private System.Windows.Forms.ContextMenuStrip yearlyContextMenu;
     }
 }
 

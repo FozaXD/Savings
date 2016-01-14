@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace Savings
 {
     partial class AddItem
     {
@@ -66,6 +66,7 @@
             // 
             // categoryComboBox
             // 
+            this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Items.AddRange(new object[] {
             resources.GetString("categoryComboBox.Items"),

@@ -40,7 +40,7 @@
             this.existingAccountButton.Location = new System.Drawing.Point(173, 50);
             this.existingAccountButton.Name = "existingAccountButton";
             this.existingAccountButton.Size = new System.Drawing.Size(123, 53);
-            this.existingAccountButton.TabIndex = 4;
+            this.existingAccountButton.TabIndex = 1;
             this.existingAccountButton.Text = "Existing Account";
             this.existingAccountButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.existingAccountButton.UseVisualStyleBackColor = true;
@@ -53,7 +53,7 @@
             this.newAccountButton.Location = new System.Drawing.Point(28, 50);
             this.newAccountButton.Name = "newAccountButton";
             this.newAccountButton.Size = new System.Drawing.Size(119, 53);
-            this.newAccountButton.TabIndex = 3;
+            this.newAccountButton.TabIndex = 0;
             this.newAccountButton.Text = "New Account";
             this.newAccountButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.newAccountButton.UseVisualStyleBackColor = true;

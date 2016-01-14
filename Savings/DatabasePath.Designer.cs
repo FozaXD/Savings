@@ -62,7 +62,7 @@
             this.openFileButton.Location = new System.Drawing.Point(278, 23);
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Size = new System.Drawing.Size(65, 22);
-            this.openFileButton.TabIndex = 2;
+            this.openFileButton.TabIndex = 1;
             this.openFileButton.Text = "Open";
             this.openFileButton.UseVisualStyleBackColor = true;
             this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
@@ -72,7 +72,7 @@
             this.setDataPathButton.Location = new System.Drawing.Point(278, 51);
             this.setDataPathButton.Name = "setDataPathButton";
             this.setDataPathButton.Size = new System.Drawing.Size(65, 23);
-            this.setDataPathButton.TabIndex = 3;
+            this.setDataPathButton.TabIndex = 2;
             this.setDataPathButton.Text = "Set";
             this.setDataPathButton.UseVisualStyleBackColor = true;
             this.setDataPathButton.Click += new System.EventHandler(this.setDataPathButton_Click);

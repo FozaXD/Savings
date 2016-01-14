@@ -12,11 +12,12 @@ using System.Data.SQLite;
 using Savings;
 using System.Globalization;
 
-namespace WindowsFormsApplication1
+namespace Savings
 {
     public partial class Main : Form
     {
         public static string addType;
+        public static string editType;
         decimal sumYearly = 0.00m;
         decimal sumMonthly = 0.00m;
         decimal sumWanted = 0.00m;
@@ -195,16 +196,17 @@ namespace WindowsFormsApplication1
 
         private void RemoveMonthlyRecord()
         {
-            int selectedIndex = monthlyDataGridView.SelectedRows[0].Index;
-
             try
             {
                 SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
                 con.Open();
                 using (SQLiteCommand cmd = con.CreateCommand())
                 {
-                    cmd.CommandText = String.Format("DELETE FROM Monthly WHERE Id=" + int.Parse(monthlyDataGridView[0, selectedIndex].Value.ToString()), con);
-                    cmd.ExecuteNonQuery();
+                    foreach (DataGridViewRow row in monthlyDataGridView.SelectedRows)
+                    {
+                        cmd.CommandText = String.Format("DELETE FROM Monthly WHERE Id=" + int.Parse(monthlyDataGridView[0, row.Index].Value.ToString()), con);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 con.Close();
                 DrawMonthlyDataGridView();
@@ -217,16 +219,17 @@ namespace WindowsFormsApplication1
 
         private void RemoveYearlyRecord()
         {
-            int selectedIndex = yearlyDataGridView.SelectedRows[0].Index;
-
             try
             {
                 SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
                 con.Open();
                 using (SQLiteCommand cmd = con.CreateCommand())
                 {
-                    cmd.CommandText = String.Format("DELETE FROM Yearly WHERE Id=" + int.Parse(yearlyDataGridView[0, selectedIndex].Value.ToString()), con);
-                    cmd.ExecuteNonQuery();
+                    foreach (DataGridViewRow row in monthlyDataGridView.SelectedRows)
+                    {
+                        cmd.CommandText = String.Format("DELETE FROM Yearly WHERE Id=" + int.Parse(yearlyDataGridView[0, row.Index].Value.ToString()), con);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 con.Close();
                 DrawYearlyDataGridView();
@@ -239,16 +242,17 @@ namespace WindowsFormsApplication1
 
         private void RemoveWantedRecord()
         {
-            int selectedIndex = wantedDataGridView.SelectedRows[0].Index;
-
             try
             {
                 SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
                 con.Open();
                 using (SQLiteCommand cmd = con.CreateCommand())
                 {
-                    cmd.CommandText = String.Format("DELETE FROM Wanted WHERE Id=" + int.Parse(wantedDataGridView[0, selectedIndex].Value.ToString()), con);
-                    cmd.ExecuteNonQuery();
+                    foreach (DataGridViewRow row in monthlyDataGridView.SelectedRows)
+                    {
+                        cmd.CommandText = String.Format("DELETE FROM Wanted WHERE Id=" + int.Parse(wantedDataGridView[0, row.Index].Value.ToString()), con);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 con.Close();
                 DrawWantedDataGridView();
@@ -303,7 +307,7 @@ namespace WindowsFormsApplication1
             if (MessageBox.Show("Are you sure you wish to remove the selected record?", "Remove Record?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 RemoveMonthlyRecord();
-            }      
+            }
             Draw();
         }
 
@@ -325,5 +329,152 @@ namespace WindowsFormsApplication1
             Draw();
         }
         #endregion
+
+        private void monthlyDataGridView_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                monthlyContextMenu.Items.Clear();
+                monthlyContextMenu.Items.Add("Edit Selected");
+                var ht = monthlyDataGridView.HitTest(e.X, e.Y);
+
+                if (ht.Type != DataGridViewHitTestType.None)
+                {
+                    monthlyContextMenu.Show(monthlyDataGridView, new Point(e.X, e.Y));
+                }
+                
+            }
+        }
+
+        private void monthlyContextMenu_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (monthlyDataGridView.SelectedRows.Count == 1)
+            {
+                int selectedrowindex = monthlyDataGridView.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = monthlyDataGridView.Rows[selectedrowindex];
+
+                Variables.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
+                Variables.Description = Convert.ToString(selectedRow.Cells[1].Value);
+                Variables.CategoryIndex = Convert.ToInt32(selectedRow.Cells[2].Value) - 1;
+                Variables.Amount = Convert.ToString(selectedRow.Cells[3].Value);
+
+                editType = "Monthly";
+
+                EditItem editItem = new EditItem(this);
+                editItem.ShowDialog();
+            }
+        }
+
+        private void monthlyDataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (monthlyDataGridView.RowCount > 0)
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    monthlyDataGridView.CurrentCell = monthlyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    monthlyDataGridView.Rows[e.RowIndex].Selected = true;
+                    monthlyDataGridView.Focus();
+                }
+            }
+        }
+
+        private void wantedContextMenu_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (wantedDataGridView.SelectedRows.Count == 1)
+            {
+                int selectedrowindex = wantedDataGridView.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = wantedDataGridView.Rows[selectedrowindex];
+
+                Variables.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
+                Variables.Description = Convert.ToString(selectedRow.Cells[1].Value);
+                Variables.CategoryIndex = Convert.ToInt32(selectedRow.Cells[2].Value) - 1;
+                Variables.Amount = Convert.ToString(selectedRow.Cells[3].Value);
+
+                editType = "Wanted";
+
+                EditItem editItem = new EditItem(this);
+                editItem.ShowDialog();
+            }
+        }
+
+        private void wantedDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                wantedContextMenu.Items.Clear();
+                wantedContextMenu.Items.Add("Edit Selected");
+                var ht = wantedDataGridView.HitTest(e.X, e.Y);
+
+                if (ht.Type != DataGridViewHitTestType.None)
+                {
+                    wantedContextMenu.Show(wantedDataGridView, new Point(e.X, e.Y));
+                }
+
+            }
+        }
+
+        private void wantedDataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (wantedDataGridView.RowCount > 0)
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    wantedDataGridView.CurrentCell = wantedDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    wantedDataGridView.Rows[e.RowIndex].Selected = true;
+                    wantedDataGridView.Focus();
+                }
+            }
+        }
+
+        private void yearlyContextMenu_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (yearlyDataGridView.SelectedRows.Count == 1)
+            {
+                int selectedrowindex = yearlyDataGridView.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = yearlyDataGridView.Rows[selectedrowindex];
+
+                Variables.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
+                Variables.Description = Convert.ToString(selectedRow.Cells[1].Value);
+                Variables.CategoryIndex = Convert.ToInt32(selectedRow.Cells[2].Value) - 1;
+                Variables.Amount = Convert.ToString(selectedRow.Cells[3].Value);
+
+                editType = "Yearly";
+
+                EditItem editItem = new EditItem(this);
+                editItem.ShowDialog();
+            }
+        }
+
+        private void yearlyDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                yearlyContextMenu.Items.Clear();
+                yearlyContextMenu.Items.Add("Edit Selected");
+                var ht = yearlyDataGridView.HitTest(e.X, e.Y);
+
+                if (ht.Type != DataGridViewHitTestType.None)
+                {
+                    yearlyContextMenu.Show(yearlyDataGridView, new Point(e.X, e.Y));
+                }
+
+            }
+        }
+
+        private void yearlyDataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (yearlyDataGridView.RowCount > 0)
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    yearlyDataGridView.CurrentCell = yearlyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    yearlyDataGridView.Rows[e.RowIndex].Selected = true;
+                    yearlyDataGridView.Focus();
+                }
+            }
+        }
     }
 }

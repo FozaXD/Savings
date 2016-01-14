@@ -11,7 +11,7 @@ using System.Data.SQLite;
 using Savings;
 using System.Text.RegularExpressions;
 
-namespace WindowsFormsApplication1
+namespace Savings
 {
     public partial class AddItem : Form
     {
@@ -64,7 +64,7 @@ namespace WindowsFormsApplication1
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (categoryComboBox.SelectedIndex >= 0)
+            if (categoryComboBox.SelectedIndex > 0)
             {
                 switch (Main.addType)
                 {
@@ -180,21 +180,21 @@ namespace WindowsFormsApplication1
         private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetErrorProviders();
-            switch (categoryComboBox.SelectedText)
+            switch (categoryComboBox.SelectedIndex)
             {
-                case "1 - Critical":
+                case 0:
                     cat = 1;
                     break;
 
-                case "2 - Future":
+                case 1:
                     cat = 2;
                     break;
 
-                case "3 - Non - Essential":
+                case 2:
                     cat = 3;
                     break;
 
-                case "4 - Luxury":
+                case 3:
                     cat = 4;
                     break;
 
