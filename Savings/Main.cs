@@ -54,94 +54,113 @@ namespace Savings
 
         public void DrawMonthlyDataGridView()
         {
-            monthlyDataGridView.Rows.Clear();
-            SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
-            con.Open();
-            SQLiteCommand comm = new SQLiteCommand("Select * From Monthly", con);
-            using (SQLiteDataReader read = comm.ExecuteReader())
-            {
-                while (read.Read())
+            try {
+                monthlyDataGridView.Rows.Clear();
+                SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
+                con.Open();
+                SQLiteCommand comm = new SQLiteCommand("Select * From Monthly", con);
+                using (SQLiteDataReader read = comm.ExecuteReader())
                 {
-                    monthlyDataGridView.Rows.Add(new object[] {
+                    while (read.Read())
+                    {
+                        monthlyDataGridView.Rows.Add(new object[] {
                     read.GetValue(0),  // U can use column index
                     read.GetValue(read.GetOrdinal("Description")),  // Or column name like this
                     read.GetValue(read.GetOrdinal("Category")),
                     read.GetValue(read.GetOrdinal("Amount"))
                     });
+                    }
+                }
+                con.Close();
+                //Set amount column to currency format
+                monthlyDataGridView.Columns["monthlyAmtColumn"].DefaultCellStyle.Format = "c";
+                if (monthlyDataGridView.Rows.Count != 0)
+                {
+                    removeMonthlyButton.Enabled = true;
+                }
+                else
+                {
+                    removeMonthlyButton.Enabled = false;
                 }
             }
-            con.Close();
-            //Set amount column to currency format
-            monthlyDataGridView.Columns["monthlyAmtColumn"].DefaultCellStyle.Format = "c";
-            if (monthlyDataGridView.Rows.Count != 0)
+            catch (Exception ex)
             {
-                removeMonthlyButton.Enabled = true;
-            }
-            else
-            {
-                removeMonthlyButton.Enabled = false;
+                MessageBox.Show(ex.Message);
             }
         }
 
         public void DrawYearlyDataGridView()
         {
             yearlyDataGridView.Rows.Clear();
-            SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
-            con.Open();
-            SQLiteCommand comm = new SQLiteCommand("Select * From Yearly", con);
-            using (SQLiteDataReader read = comm.ExecuteReader())
+            try
             {
-                while (read.Read())
+                SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
+                con.Open();
+                SQLiteCommand comm = new SQLiteCommand("Select * From Yearly", con);
+                using (SQLiteDataReader read = comm.ExecuteReader())
                 {
-                    yearlyDataGridView.Rows.Add(new object[] {
+                    while (read.Read())
+                    {
+                        yearlyDataGridView.Rows.Add(new object[] {
                     read.GetValue(0),  // U can use column index
                     read.GetValue(read.GetOrdinal("Description")),  // Or column name like this
                     read.GetValue(read.GetOrdinal("Category")),
                     read.GetValue(read.GetOrdinal("Amount"))
                     });
+                    }
+                }
+                con.Close();
+                //Set amount column to currency format
+                yearlyDataGridView.Columns["yearlyAmtColumn"].DefaultCellStyle.Format = "c";
+                if (yearlyDataGridView.Rows.Count != 0)
+                {
+                    removeYearlyButton.Enabled = true;
+                }
+                else
+                {
+                    removeYearlyButton.Enabled = false;
                 }
             }
-            con.Close();
-            //Set amount column to currency format
-            yearlyDataGridView.Columns["yearlyAmtColumn"].DefaultCellStyle.Format = "c";
-            if (yearlyDataGridView.Rows.Count != 0)
+            catch (Exception ex)
             {
-                removeYearlyButton.Enabled = true;
-            }
-            else
-            {
-                removeYearlyButton.Enabled = false;
+                MessageBox.Show(ex.Message);
             }
         }
 
         public void DrawWantedDataGridView()
         {
-            wantedDataGridView.Rows.Clear();
-            SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
-            con.Open();
-            SQLiteCommand comm = new SQLiteCommand("Select * From Wanted", con);
-            using (SQLiteDataReader read = comm.ExecuteReader())
-            {
-                while (read.Read())
+            try {
+                wantedDataGridView.Rows.Clear();
+                SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
+                con.Open();
+                SQLiteCommand comm = new SQLiteCommand("Select * From Wanted", con);
+                using (SQLiteDataReader read = comm.ExecuteReader())
                 {
-                    wantedDataGridView.Rows.Add(new object[] {
+                    while (read.Read())
+                    {
+                        wantedDataGridView.Rows.Add(new object[] {
                     read.GetValue(0),  // U can use column index
                     read.GetValue(read.GetOrdinal("Description")),  // Or column name like this
                     read.GetValue(read.GetOrdinal("Category")),
                     read.GetValue(read.GetOrdinal("Amount"))
                     });
+                    }
+                }
+                con.Close();
+                //Set amount column to currency format
+                wantedDataGridView.Columns["wantedAmtColumn"].DefaultCellStyle.Format = "c";
+                if (wantedDataGridView.Rows.Count != 0)
+                {
+                    removeWantedButton.Enabled = true;
+                }
+                else
+                {
+                    removeWantedButton.Enabled = false;
                 }
             }
-            con.Close();
-            //Set amount column to currency format
-            wantedDataGridView.Columns["wantedAmtColumn"].DefaultCellStyle.Format = "c";
-            if (wantedDataGridView.Rows.Count != 0)
+            catch (Exception ex)
             {
-                removeWantedButton.Enabled = true;
-            }
-            else
-            {
-                removeWantedButton.Enabled = false;
+                MessageBox.Show(ex.Message);
             }
         }
 
