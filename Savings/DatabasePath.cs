@@ -26,10 +26,13 @@ namespace Savings
 
         public void CheckExisting()
         {
-            var directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            var directory = new DirectoryInfo(Application.UserAppDataPath);
+#if DEBUG
+            directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+#endif
             var existingFile = (from f in directory.GetFiles("*.db")
-                          orderby f.LastWriteTime descending
-                          select f).FirstOrDefault();
+                                orderby f.LastWriteTime descending
+                                select f).FirstOrDefault();
             if (existingFile != null)
             {
                 if (existingFile.ToString() != "")
@@ -64,10 +67,10 @@ namespace Savings
 
             if (result == DialogResult.OK) // Test result.
             {
-               DataFilePath = openFileDialog1.FileName;
+                DataFilePath = openFileDialog1.FileName;
             }
             databaseFilePathTextBox.Text = DataFilePath;
-        
+
         }
 
         private void databaseFilePathTextBox_TextChanged(object sender, EventArgs e)
