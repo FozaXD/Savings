@@ -37,7 +37,7 @@ namespace Savings
             {
                 if (existingFile.ToString() != "")
                 {
-                    databaseFilePathTextBox.Text = existingFile.ToString();
+                    databaseFilePathTextBox.Text = Path.GetFullPath(existingFile.ToString());
                 }
             }
         }
