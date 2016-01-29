@@ -86,7 +86,7 @@ namespace Savings
                           )";
 
                 System.Data.SQLite.SQLiteConnection.CreateFile(Path.Combine(Variables.databaseFolder,newAccountName));        // Create the file which will be hosting our database
-                using (System.Data.SQLite.SQLiteConnection con = new System.Data.SQLite.SQLiteConnection("data source=" + newAccountName))
+                using (System.Data.SQLite.SQLiteConnection con = new System.Data.SQLite.SQLiteConnection("data source=" + Path.Combine(Variables.databaseFolder, newAccountName)))
                 {
                     using (System.Data.SQLite.SQLiteCommand com = new System.Data.SQLite.SQLiteCommand(con))
                     {
@@ -103,9 +103,9 @@ namespace Savings
                         con.Close();        // Close the connection to the database
                     }
                 }
-                Variables.dataPath = Variables.connectionString + Variables.accountName + ".db";
+                Variables.dataPath = Variables.connectionString + Variables.databaseFolder + @"\" + Variables.accountName + ".db";
 
-                string fullDbPath = Path.GetFullPath(Variables.accountName + ".db");
+                string fullDbPath = Variables.databaseFolder + @"\" + Variables.accountName + ".db";
 
                 if (File.Exists(fullDbPath))
                 {
