@@ -48,6 +48,8 @@ namespace Savings
         private void newAccountButton_Click(object sender, EventArgs e)
         {
 
+            Directory.CreateDirectory(Variables.databaseFolder);
+
             string newAccountName = "";
             DialogResult dr = new DialogResult();
 
@@ -83,7 +85,7 @@ namespace Savings
                           [Amount] NUMERIC NOT NULL
                           )";
 
-                System.Data.SQLite.SQLiteConnection.CreateFile(newAccountName);        // Create the file which will be hosting our database
+                System.Data.SQLite.SQLiteConnection.CreateFile(Path.Combine(Variables.databaseFolder,newAccountName));        // Create the file which will be hosting our database
                 using (System.Data.SQLite.SQLiteConnection con = new System.Data.SQLite.SQLiteConnection("data source=" + newAccountName))
                 {
                     using (System.Data.SQLite.SQLiteCommand com = new System.Data.SQLite.SQLiteCommand(con))

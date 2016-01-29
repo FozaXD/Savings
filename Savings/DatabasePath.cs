@@ -26,10 +26,8 @@ namespace Savings
 
         public void CheckExisting()
         {
-            var directory = new DirectoryInfo(Application.UserAppDataPath);
-#if DEBUG
-            directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-#endif
+            var directory = new DirectoryInfo(Variables.databaseFolder);
+
             var existingFile = (from f in directory.GetFiles("*.db")
                                 orderby f.LastWriteTime descending
                                 select f).FirstOrDefault();
