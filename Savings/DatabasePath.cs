@@ -15,10 +15,28 @@ namespace Savings
     {
         public string DataFilePath { get; set; }
 
+
+
         public DatabasePath()
         {
             InitializeComponent();
             Reset();
+            CheckExisting();
+        }
+
+        public void CheckExisting()
+        {
+            var directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            var existingFile = (from f in directory.GetFiles("*.db")
+                          orderby f.LastWriteTime descending
+                          select f).FirstOrDefault();
+            if (existingFile != null)
+            {
+                if (existingFile.ToString() != "")
+                {
+                    databaseFilePathTextBox.Text = existingFile.ToString();
+                }
+            }
         }
 
         private void Reset()
