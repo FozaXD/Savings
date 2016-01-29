@@ -64,7 +64,7 @@ namespace Savings
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (categoryComboBox.SelectedIndex > 0)
+            if (categoryComboBox.SelectedIndex >= 0)
             {
                 switch (Main.addType)
                 {

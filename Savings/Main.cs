@@ -38,6 +38,7 @@ namespace Savings
             DrawMonthlyDataGridView();
             DrawWantedDataGridView();
             GetTotals();
+            GetCategoryCounts();
         }
 
         public void DrawUserInfo()
@@ -54,7 +55,8 @@ namespace Savings
 
         public void DrawMonthlyDataGridView()
         {
-            try {
+            try
+            {
                 monthlyDataGridView.Rows.Clear();
                 SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
                 con.Open();
@@ -129,7 +131,8 @@ namespace Savings
 
         public void DrawWantedDataGridView()
         {
-            try {
+            try
+            {
                 wantedDataGridView.Rows.Clear();
                 SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
                 con.Open();
@@ -209,6 +212,76 @@ namespace Savings
             wantedTotalLabel.Visible = true;
             overallTotal.Visible = true;
             yearlyMonthBills.Visible = true;
+        }
+
+        public void GetCategoryCounts()
+        {
+
+            cat3Bar.Size = new Size(0, cat3Bar.Height);
+            cat4Bar.Size = new Size(0, cat3Bar.Height);
+            cat2Bar.Size = new Size(0, cat3Bar.Height);
+            cat1Bar.Size = new Size(0, cat3Bar.Height);
+
+            decimal yearlyCat1 = yearlyDataGridView.Rows.Cast<DataGridViewRow>()
+               .Count(row => row.Cells[2].Value.ToString() == "1");
+
+            decimal yearlyCat2 = yearlyDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "2");
+
+            decimal yearlyCat3 = yearlyDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "3");
+
+            decimal yearlyCat4 = yearlyDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "4");
+
+            decimal monthlyCat1 = monthlyDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "1");
+
+            decimal monthlyCat2 = monthlyDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "2");
+
+            decimal monthlyCat3 = monthlyDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "3");
+
+            decimal monthlyCat4 = monthlyDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "4");
+
+            decimal wantedCat1 = wantedDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "1");
+
+            decimal wantedCat2 = wantedDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "2");
+
+            decimal wantedCat3 = wantedDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "3");
+
+            decimal wantedCat4 = wantedDataGridView.Rows.Cast<DataGridViewRow>()
+              .Count(row => row.Cells[2].Value.ToString() == "4");
+
+            decimal totalCat1 = yearlyCat1 + monthlyCat1 + wantedCat1;
+            decimal totalCat2 = yearlyCat2 + monthlyCat2 + wantedCat2;
+            decimal totalCat3 = yearlyCat3 + monthlyCat3 + wantedCat3;
+            decimal totalCat4 = yearlyCat4 + monthlyCat4 + wantedCat4;
+            decimal totalCats = totalCat1 + totalCat2 + totalCat3 + totalCat4;
+
+            if (totalCats != 0)
+            {
+                decimal percentTotalCat1 = (totalCat1 / totalCats) * 100;
+                decimal percentTotalCat2 = (totalCat2 / totalCats) * 100;
+                decimal percentTotalCat3 = (totalCat3 / totalCats) * 100;
+                decimal percentTotalCat4 = (totalCat4 / totalCats) * 100;
+
+                cat1Bar.Size = new Size(Convert.ToInt32(percentTotalCat1) * 4, cat1Bar.Height);
+
+                cat2Bar.Size = new Size(Convert.ToInt32(percentTotalCat2) * 4, cat2Bar.Height);
+                cat2Bar.Location = new Point(cat1Bar.Left + cat1Bar.Size.Width, cat2Bar.Top);
+
+                cat3Bar.Size = new Size(Convert.ToInt32(percentTotalCat3) * 4, cat3Bar.Height);
+                cat3Bar.Location = new Point(cat2Bar.Left + cat2Bar.Size.Width, cat3Bar.Top);
+
+                cat4Bar.Size = new Size(Convert.ToInt32(percentTotalCat4) * 4, cat4Bar.Height);
+                cat4Bar.Location = new Point(cat3Bar.Left + cat3Bar.Size.Width, cat4Bar.Top);
+            }
         }
 
         #region Buttons
@@ -361,7 +434,7 @@ namespace Savings
                 {
                     monthlyContextMenu.Show(monthlyDataGridView, new Point(e.X, e.Y));
                 }
-                
+
             }
         }
 
