@@ -36,6 +36,7 @@ namespace Savings
                 if (existingFile.ToString() != "")
                 {
                     databaseFilePathTextBox.Text = Variables.databaseFolder + @"\" + existingFile.ToString();
+                    DataFilePath = databaseFilePathTextBox.Text;
                 }
             }
         }
