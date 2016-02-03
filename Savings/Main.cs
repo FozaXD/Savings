@@ -46,7 +46,7 @@ namespace Savings
             DrawWantedDataGridView();
             GetTotals();
             GetCategoryCounts();
-            ClearSelected();  
+            ClearSelected();
         }
 
         public void ClearSelected()
@@ -473,7 +473,7 @@ namespace Savings
                 monthlyContextMenu.Items.Add("Edit Selected");
                 var ht = monthlyDataGridView.HitTest(e.X, e.Y);
 
-                if (ht.Type != DataGridViewHitTestType.None)
+                if (ht.Type != DataGridViewHitTestType.None && ht.Type != DataGridViewHitTestType.ColumnHeader)
                 {
                     monthlyContextMenu.Show(monthlyDataGridView, new Point(e.X, e.Y));
                 }
@@ -507,9 +507,12 @@ namespace Savings
             {
                 if (e.Button == MouseButtons.Right)
                 {
-                    monthlyDataGridView.CurrentCell = monthlyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                    monthlyDataGridView.Rows[e.RowIndex].Selected = true;
-                    monthlyDataGridView.Focus();
+                    if (e.RowIndex != -1)
+                    {
+                        monthlyDataGridView.CurrentCell = monthlyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                        monthlyDataGridView.Rows[e.RowIndex].Selected = true;
+                        monthlyDataGridView.Focus();
+                    }
                 }
             }
         }
@@ -542,7 +545,7 @@ namespace Savings
                 wantedContextMenu.Items.Add("Edit Selected");
                 var ht = wantedDataGridView.HitTest(e.X, e.Y);
 
-                if (ht.Type != DataGridViewHitTestType.None)
+                if (ht.Type != DataGridViewHitTestType.None && ht.Type != DataGridViewHitTestType.ColumnHeader)
                 {
                     wantedContextMenu.Show(wantedDataGridView, new Point(e.X, e.Y));
                 }
@@ -556,9 +559,12 @@ namespace Savings
             {
                 if (e.Button == MouseButtons.Right)
                 {
-                    wantedDataGridView.CurrentCell = wantedDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                    wantedDataGridView.Rows[e.RowIndex].Selected = true;
-                    wantedDataGridView.Focus();
+                    if (e.RowIndex != -1)
+                    {
+                        wantedDataGridView.CurrentCell = wantedDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                        wantedDataGridView.Rows[e.RowIndex].Selected = true;
+                        wantedDataGridView.Focus();
+                    }
                 }
             }
         }
@@ -591,11 +597,10 @@ namespace Savings
                 yearlyContextMenu.Items.Add("Edit Selected");
                 var ht = yearlyDataGridView.HitTest(e.X, e.Y);
 
-                if (ht.Type != DataGridViewHitTestType.None)
+                if (ht.Type != DataGridViewHitTestType.None && ht.Type != DataGridViewHitTestType.ColumnHeader)
                 {
                     yearlyContextMenu.Show(yearlyDataGridView, new Point(e.X, e.Y));
                 }
-
             }
         }
 
@@ -605,9 +610,12 @@ namespace Savings
             {
                 if (e.Button == MouseButtons.Right)
                 {
-                    yearlyDataGridView.CurrentCell = yearlyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                    yearlyDataGridView.Rows[e.RowIndex].Selected = true;
-                    yearlyDataGridView.Focus();
+                    if (e.RowIndex != -1)
+                    {
+                        yearlyDataGridView.CurrentCell = yearlyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                        yearlyDataGridView.Rows[e.RowIndex].Selected = true;
+                        yearlyDataGridView.Focus();
+                    }
                 }
             }
         }
