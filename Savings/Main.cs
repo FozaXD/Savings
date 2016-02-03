@@ -16,11 +16,18 @@ namespace Savings
 {
     public partial class Main : Form
     {
+        #region Variables
+
         public static string addType;
         public static string editType;
         decimal sumYearly = 0.00m;
         decimal sumMonthly = 0.00m;
         decimal sumWanted = 0.00m;
+        decimal twelveMonthMonthly = 0.00m;
+
+        #endregion
+
+        #region Functions
 
         public Main()
         {
@@ -39,6 +46,14 @@ namespace Savings
             DrawWantedDataGridView();
             GetTotals();
             GetCategoryCounts();
+            ClearSelected();  
+        }
+
+        public void ClearSelected()
+        {
+            yearlyDataGridView.ClearSelection();
+            monthlyDataGridView.ClearSelection();
+            wantedDataGridView.ClearSelection();
         }
 
         public void DrawUserInfo()
@@ -199,7 +214,7 @@ namespace Savings
 
         public void SetTotalLabels()
         {
-            decimal twelveMonthMonthly = decimal.Multiply(sumMonthly, 12);
+            twelveMonthMonthly = decimal.Multiply(sumMonthly, 12);
             overallTotal.Text = decimal.Add(decimal.Add(sumYearly, twelveMonthMonthly), sumWanted).ToString("C", CultureInfo.CurrentCulture);
 
             yearlyTotalLabel.Text = sumYearly.ToString("C", CultureInfo.CurrentCulture);
@@ -212,15 +227,17 @@ namespace Savings
             wantedTotalLabel.Visible = true;
             overallTotal.Visible = true;
             yearlyMonthBills.Visible = true;
+
+            GetBreakdownCounts();
         }
 
         public void GetCategoryCounts()
         {
 
             cat3Bar.Size = new Size(0, cat3Bar.Height);
-            cat4Bar.Size = new Size(0, cat3Bar.Height);
-            cat2Bar.Size = new Size(0, cat3Bar.Height);
-            cat1Bar.Size = new Size(0, cat3Bar.Height);
+            cat4Bar.Size = new Size(0, cat4Bar.Height);
+            cat2Bar.Size = new Size(0, cat2Bar.Height);
+            cat1Bar.Size = new Size(0, cat1Bar.Height);
 
             decimal yearlyCat1 = yearlyDataGridView.Rows.Cast<DataGridViewRow>()
                .Count(row => row.Cells[2].Value.ToString() == "1");
@@ -284,7 +301,34 @@ namespace Savings
             }
         }
 
-        #region Buttons
+        public void GetBreakdownCounts()
+        {
+            yearlyBar.Size = new Size(0, yearlyBar.Height);
+            monthlyBar.Size = new Size(0, monthlyBar.Height);
+            wantedBar.Size = new Size(0, wantedBar.Height);
+
+            decimal total = sumYearly + twelveMonthMonthly + sumWanted;
+
+            if (total != 0)
+            {
+                decimal percentYearly = (sumYearly / total) * 100;
+                decimal percentMonthly = (twelveMonthMonthly / total) * 100;
+                decimal percentWanted = (sumWanted / total) * 100;
+
+
+                yearlyBar.Size = new Size(Convert.ToInt32(percentYearly) * 4, yearlyBar.Height);
+
+                monthlyBar.Size = new Size(Convert.ToInt32(percentMonthly) * 4, monthlyBar.Height);
+                monthlyBar.Location = new Point(yearlyBar.Left + yearlyBar.Size.Width, monthlyBar.Top);
+
+                wantedBar.Size = new Size(Convert.ToInt32(percentWanted) * 4, wantedBar.Height);
+                wantedBar.Location = new Point(monthlyBar.Left + monthlyBar.Size.Width, wantedBar.Top);
+            }
+        }
+
+        #endregion
+
+        #region Events
 
         private void RemoveMonthlyRecord()
         {
@@ -317,7 +361,7 @@ namespace Savings
                 con.Open();
                 using (SQLiteCommand cmd = con.CreateCommand())
                 {
-                    foreach (DataGridViewRow row in monthlyDataGridView.SelectedRows)
+                    foreach (DataGridViewRow row in yearlyDataGridView.SelectedRows)
                     {
                         cmd.CommandText = String.Format("DELETE FROM Yearly WHERE Id=" + int.Parse(yearlyDataGridView[0, row.Index].Value.ToString()), con);
                         cmd.ExecuteNonQuery();
@@ -340,7 +384,7 @@ namespace Savings
                 con.Open();
                 using (SQLiteCommand cmd = con.CreateCommand())
                 {
-                    foreach (DataGridViewRow row in monthlyDataGridView.SelectedRows)
+                    foreach (DataGridViewRow row in wantedDataGridView.SelectedRows)
                     {
                         cmd.CommandText = String.Format("DELETE FROM Wanted WHERE Id=" + int.Parse(wantedDataGridView[0, row.Index].Value.ToString()), con);
                         cmd.ExecuteNonQuery();
@@ -420,7 +464,6 @@ namespace Savings
             }
             Draw();
         }
-        #endregion
 
         private void monthlyDataGridView_MouseClick_1(object sender, MouseEventArgs e)
         {
@@ -567,6 +610,37 @@ namespace Savings
                     yearlyDataGridView.Focus();
                 }
             }
+        }
+
+        #endregion
+
+        private void yearlyDataGridView_Leave_1(object sender, EventArgs e)
+        {
+            if (monthlyDataGridView.Focused == true || wantedDataGridView.Focused == true)
+            {
+                yearlyDataGridView.ClearSelection();
+            }
+        }
+
+        private void monthlyDataGridView_Leave_1(object sender, EventArgs e)
+        {
+            if (yearlyDataGridView.Focused == true || wantedDataGridView.Focused == true)
+            {
+                monthlyDataGridView.ClearSelection();
+            }
+        }
+
+        private void wantedDataGridView_Leave_1(object sender, EventArgs e)
+        {
+            if (monthlyDataGridView.Focused == true || yearlyDataGridView.Focused == true)
+            {
+                wantedDataGridView.ClearSelection();
+            }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            ClearSelected();
         }
     }
 }

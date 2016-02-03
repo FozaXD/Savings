@@ -34,6 +34,7 @@
             this.accountNameTextBox = new System.Windows.Forms.TextBox();
             this.createButton = new System.Windows.Forms.Button();
             this.errorProviderNameAccount = new System.Windows.Forms.ErrorProvider(this.components);
+            this.useLocal = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNameAccount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             // 
             this.accountNameTextBox.Location = new System.Drawing.Point(56, 26);
             this.accountNameTextBox.Name = "accountNameTextBox";
-            this.accountNameTextBox.Size = new System.Drawing.Size(249, 20);
+            this.accountNameTextBox.Size = new System.Drawing.Size(265, 20);
             this.accountNameTextBox.TabIndex = 0;
             // 
             // createButton
@@ -59,7 +60,7 @@
             this.createButton.BackColor = System.Drawing.Color.Silver;
             this.createButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createButton.ForeColor = System.Drawing.Color.White;
-            this.createButton.Location = new System.Drawing.Point(230, 60);
+            this.createButton.Location = new System.Drawing.Point(246, 60);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(75, 23);
             this.createButton.TabIndex = 1;
@@ -72,13 +73,27 @@
             this.errorProviderNameAccount.ContainerControl = this;
             this.errorProviderNameAccount.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderNameAccount.Icon")));
             // 
+            // useLocal
+            // 
+            this.useLocal.AutoSize = true;
+            this.useLocal.Checked = true;
+            this.useLocal.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.useLocal.ForeColor = System.Drawing.Color.White;
+            this.useLocal.Location = new System.Drawing.Point(56, 52);
+            this.useLocal.Name = "useLocal";
+            this.useLocal.Size = new System.Drawing.Size(181, 17);
+            this.useLocal.TabIndex = 2;
+            this.useLocal.Text = "Use &Savings folder on local drive";
+            this.useLocal.UseVisualStyleBackColor = true;
+            // 
             // NameAccount
             // 
             this.AcceptButton = this.createButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.ClientSize = new System.Drawing.Size(317, 95);
+            this.ClientSize = new System.Drawing.Size(333, 95);
+            this.Controls.Add(this.useLocal);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.accountNameTextBox);
             this.Controls.Add(this.label1);
@@ -101,5 +116,6 @@
         private System.Windows.Forms.TextBox accountNameTextBox;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.ErrorProvider errorProviderNameAccount;
+        private System.Windows.Forms.CheckBox useLocal;
     }
 }

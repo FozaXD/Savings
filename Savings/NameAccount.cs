@@ -38,9 +38,12 @@ namespace Savings
             if (accountNameTextBox.Text != "")
             {
                 Variables.accountName = accountNameTextBox.Text;
+                if (useLocal.Checked == false)
+                {
+                    Variables.databaseFolder = AppDomain.CurrentDomain.BaseDirectory;
+                }
                 this.Close();
             }
         }
-
     }
 }
