@@ -20,9 +20,6 @@ namespace Savings
 
         public static string addType;
         public static string editType;
-        decimal sumYearly = 0.00m;
-        decimal sumMonthly = 0.00m;
-        decimal sumWanted = 0.00m;
         decimal twelveMonthMonthly = 0.00m;
 
         #endregion
@@ -41,12 +38,39 @@ namespace Savings
 
         public void Draw()
         {
+            ClearTotals();
+            ClearSelected();
             DrawYearlyDataGridView();
             DrawMonthlyDataGridView();
             DrawWantedDataGridView();
             GetTotals();
+            SetCatTotals();
             GetCategoryCounts();
-            ClearSelected();
+            GetBreakdownCounts();
+        }
+
+        public void ClearTotals()
+        {
+            Figures.overallTotal = 0.00m;
+
+            Figures.totalYearly = 0.00m;
+            Figures.totalMonthly = 0.00m;
+            Figures.totalWanted = 0.00m;
+
+            Figures.sumYearlyCat1 = 0.00m;
+            Figures.sumYearlyCat2 = 0.00m;
+            Figures.sumYearlyCat3 = 0.00m;
+            Figures.sumYearlyCat4 = 0.00m;
+
+            Figures.sumMonthlyCat1 = 0.00m;
+            Figures.sumMonthlyCat2 = 0.00m;
+            Figures.sumMonthlyCat3 = 0.00m;
+            Figures.sumMonthlyCat4 = 0.00m;
+
+            Figures.sumWantedCat1 = 0.00m;
+            Figures.sumWantedCat2 = 0.00m;
+            Figures.sumWantedCat3 = 0.00m;
+            Figures.sumWantedCat4 = 0.00m;
         }
 
         public void ClearSelected()
@@ -184,10 +208,6 @@ namespace Savings
 
         public void GetTotals()
         {
-            sumYearly = 0.00m;
-            sumMonthly = 0.00m;
-            sumWanted = 0.00m;
-
             yearlyTotalLabel.Visible = false;
             monthlyTotalLabel.Visible = false;
             wantedTotalLabel.Visible = false;
@@ -196,17 +216,17 @@ namespace Savings
 
             for (int i = 0; i < yearlyDataGridView.Rows.Count; ++i)
             {
-                sumYearly += Convert.ToDecimal(yearlyDataGridView.Rows[i].Cells[3].Value);
+                Figures.totalYearly += Convert.ToDecimal(yearlyDataGridView.Rows[i].Cells[3].Value);
             }
 
             for (int e = 0; e < monthlyDataGridView.Rows.Count; ++e)
             {
-                sumMonthly += Convert.ToDecimal(monthlyDataGridView.Rows[e].Cells[3].Value);
+                Figures.totalMonthly += Convert.ToDecimal(monthlyDataGridView.Rows[e].Cells[3].Value);
             }
 
             for (int f = 0; f < wantedDataGridView.Rows.Count; ++f)
             {
-                sumWanted += Convert.ToDecimal(wantedDataGridView.Rows[f].Cells[3].Value);
+                Figures.totalWanted += Convert.ToDecimal(wantedDataGridView.Rows[f].Cells[3].Value);
             }
 
             SetTotalLabels();
@@ -214,12 +234,14 @@ namespace Savings
 
         public void SetTotalLabels()
         {
-            twelveMonthMonthly = decimal.Multiply(sumMonthly, 12);
-            overallTotal.Text = decimal.Add(decimal.Add(sumYearly, twelveMonthMonthly), sumWanted).ToString("C", CultureInfo.CurrentCulture);
+            twelveMonthMonthly = decimal.Multiply(Figures.totalMonthly, 12);
 
-            yearlyTotalLabel.Text = sumYearly.ToString("C", CultureInfo.CurrentCulture);
-            monthlyTotalLabel.Text = sumMonthly.ToString("C", CultureInfo.CurrentCulture);
-            wantedTotalLabel.Text = sumWanted.ToString("C", CultureInfo.CurrentCulture);
+            Figures.overallTotal = decimal.Add(decimal.Add(Figures.totalYearly, twelveMonthMonthly), Figures.totalWanted);
+            overallTotal.Text = Figures.overallTotal.ToString("C", CultureInfo.CurrentCulture);
+
+            yearlyTotalLabel.Text = Figures.totalYearly.ToString("C", CultureInfo.CurrentCulture);
+            monthlyTotalLabel.Text = Figures.totalMonthly.ToString("C", CultureInfo.CurrentCulture);
+            wantedTotalLabel.Text = Figures.totalWanted.ToString("C", CultureInfo.CurrentCulture);
             yearlyMonthBills.Text = twelveMonthMonthly.ToString("C", CultureInfo.CurrentCulture);
 
             yearlyTotalLabel.Visible = true;
@@ -227,8 +249,6 @@ namespace Savings
             wantedTotalLabel.Visible = true;
             overallTotal.Visible = true;
             yearlyMonthBills.Visible = true;
-
-            GetBreakdownCounts();
         }
 
         public void GetCategoryCounts()
@@ -307,13 +327,13 @@ namespace Savings
             monthlyBar.Size = new Size(0, monthlyBar.Height);
             wantedBar.Size = new Size(0, wantedBar.Height);
 
-            decimal total = sumYearly + twelveMonthMonthly + sumWanted;
+            decimal total = Figures.totalYearly + twelveMonthMonthly + Figures.totalWanted;
 
             if (total != 0)
             {
-                decimal percentYearly = (sumYearly / total) * 100;
+                decimal percentYearly = (Figures.totalYearly / total) * 100;
                 decimal percentMonthly = (twelveMonthMonthly / total) * 100;
-                decimal percentWanted = (sumWanted / total) * 100;
+                decimal percentWanted = (Figures.totalWanted / total) * 100;
 
 
                 yearlyBar.Size = new Size(Convert.ToInt32(percentYearly) * 4, yearlyBar.Height);
@@ -323,6 +343,69 @@ namespace Savings
 
                 wantedBar.Size = new Size(Convert.ToInt32(percentWanted) * 4, wantedBar.Height);
                 wantedBar.Location = new Point(monthlyBar.Left + monthlyBar.Size.Width, wantedBar.Top);
+            }
+        }
+
+        public void SetCatTotals()
+        {
+            for (int i = 0; i < yearlyDataGridView.Rows.Count; ++i)
+            {
+                if (yearlyDataGridView.Rows[i].Cells[2].Value.ToString().Equals("1"))
+                {
+                    Figures.sumYearlyCat1 += Convert.ToDecimal(yearlyDataGridView.Rows[i].Cells[3].Value);
+                }
+                else if (yearlyDataGridView.Rows[i].Cells[2].Value.ToString().Equals("2"))
+                {
+                    Figures.sumYearlyCat2 += Convert.ToDecimal(yearlyDataGridView.Rows[i].Cells[3].Value);
+                }
+                else if (yearlyDataGridView.Rows[i].Cells[2].Value.ToString().Equals("3"))
+                {
+                    Figures.sumYearlyCat3 += Convert.ToDecimal(yearlyDataGridView.Rows[i].Cells[3].Value);
+                }
+                else if (yearlyDataGridView.Rows[i].Cells[2].Value.ToString().Equals("4"))
+                {
+                    Figures.sumYearlyCat4 += Convert.ToDecimal(yearlyDataGridView.Rows[i].Cells[3].Value);
+                }
+            }
+
+            for (int i = 0; i < monthlyDataGridView.Rows.Count; ++i)
+            {
+                if (monthlyDataGridView.Rows[i].Cells[2].Value.ToString().Equals("1"))
+                {
+                    Figures.sumMonthlyCat1 += Convert.ToDecimal(monthlyDataGridView.Rows[i].Cells[3].Value);
+                }
+                else if (monthlyDataGridView.Rows[i].Cells[2].Value.ToString().Equals("2"))
+                {
+                    Figures.sumMonthlyCat2 += Convert.ToDecimal(monthlyDataGridView.Rows[i].Cells[3].Value);
+                }
+                else if (monthlyDataGridView.Rows[i].Cells[2].Value.ToString().Equals("3"))
+                {
+                    Figures.sumMonthlyCat3 += Convert.ToDecimal(monthlyDataGridView.Rows[i].Cells[3].Value);
+                }
+                else if (monthlyDataGridView.Rows[i].Cells[2].Value.ToString().Equals("4"))
+                {
+                    Figures.sumMonthlyCat4 += Convert.ToDecimal(monthlyDataGridView.Rows[i].Cells[3].Value);
+                }
+            }
+
+            for (int i = 0; i < wantedDataGridView.Rows.Count; ++i)
+            {
+                if (wantedDataGridView.Rows[i].Cells[2].Value.ToString().Equals("1"))
+                {
+                    Figures.sumWantedCat1 += Convert.ToDecimal(wantedDataGridView.Rows[i].Cells[3].Value);
+                }
+                else if (wantedDataGridView.Rows[i].Cells[2].Value.ToString().Equals("2"))
+                {
+                    Figures.sumWantedCat2 += Convert.ToDecimal(wantedDataGridView.Rows[i].Cells[3].Value);
+                }
+                else if (wantedDataGridView.Rows[i].Cells[2].Value.ToString().Equals("3"))
+                {
+                    Figures.sumWantedCat3 += Convert.ToDecimal(wantedDataGridView.Rows[i].Cells[3].Value);
+                }
+                else if (wantedDataGridView.Rows[i].Cells[2].Value.ToString().Equals("4"))
+                {
+                    Figures.sumWantedCat4 += Convert.ToDecimal(wantedDataGridView.Rows[i].Cells[3].Value);
+                }
             }
         }
 
@@ -620,8 +703,6 @@ namespace Savings
             }
         }
 
-        #endregion
-
         private void yearlyDataGridView_Leave_1(object sender, EventArgs e)
         {
             if (monthlyDataGridView.Focused == true || wantedDataGridView.Focused == true)
@@ -650,5 +731,13 @@ namespace Savings
         {
             ClearSelected();
         }
+
+        private void breakdownButton_Click(object sender, EventArgs e)
+        {
+            Breakdown breakdown = new Breakdown();
+            var dialogResult = breakdown.ShowDialog();
+        }
+
+        #endregion
     }
 }
