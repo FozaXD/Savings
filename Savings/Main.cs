@@ -33,6 +33,7 @@ namespace Savings
             Startup1();
 
             Draw();
+            SetToolTips();
             DrawUserInfo();
         }
 
@@ -47,6 +48,27 @@ namespace Savings
             SetCatTotals();
             GetCategoryCounts();
             GetBreakdownCounts();
+        }
+
+        public void SetToolTips()
+        {
+            toolTip1.SetToolTip(yearlyBar, "Yearly");
+            toolTip1.SetToolTip(monthlyBar, "Monthly");
+            toolTip1.SetToolTip(wantedBar, "Wanted");
+
+            toolTip1.SetToolTip(cat1Bar, "Category 1");
+            toolTip1.SetToolTip(cat2Bar, "Category 2");
+            toolTip1.SetToolTip(cat3Bar, "Category 3");
+            toolTip1.SetToolTip(cat4Bar, "Category 4");
+
+            toolTip1.SetToolTip(addYearlyButton, "Add a yearly record.");
+            toolTip1.SetToolTip(removeYearlyButton, "Remove the selected yearly record/s.");
+            toolTip1.SetToolTip(addMonthlyButton, "Add a monthly record.");
+            toolTip1.SetToolTip(removeMonthlyButton, "Remove the selected monthly record/s.");
+            toolTip1.SetToolTip(addWantedButton, "Add a wanted record.");
+            toolTip1.SetToolTip(removeWantedButton, "Remove the selected wanted record/s.");
+
+            toolTip1.SetToolTip(breakdownButton, "View a breakdown of what you need to spend.");
         }
 
         public void ClearTotals()

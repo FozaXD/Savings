@@ -87,6 +87,7 @@
             this.wantedContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yearlyContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -880,6 +881,7 @@
         private System.Windows.Forms.Panel wantedBar;
         private System.Windows.Forms.Panel yearlyBar;
         private System.Windows.Forms.Button breakdownButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
