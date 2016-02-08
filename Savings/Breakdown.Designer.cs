@@ -810,6 +810,7 @@
             this.Controls.Add(this.yearlyCat1Total);
             this.Controls.Add(this.totYearlyBillLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Breakdown";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Breakdown";
