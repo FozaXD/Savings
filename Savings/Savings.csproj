@@ -91,6 +91,12 @@
     <Compile Include="AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Assests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assests.Designer.cs">
+      <DependentUpon>Assests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Breakdown.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddItem.zh-Hans-HK.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assests.resx">
+      <DependentUpon>Assests.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Breakdown.resx">
       <DependentUpon>Breakdown.cs</DependentUpon>

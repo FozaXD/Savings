@@ -18,23 +18,43 @@ namespace Savings
         #region Parameters?
 
         int cat;
-        private Main mainForm;
+        string addType;
 
         #endregion
 
         #region Constructor
 
-        public AddItem(Main form)
+        public AddItem(string _addType)
         {
             InitializeComponent();
-            SetErrorProviders();
+            addType = _addType;
 
-            mainForm = form;
+            SetErrorProviders();
+            SetupCategories();
         }
 
         #endregion
 
         #region Methods
+
+        public void SetupCategories()
+        {
+            categoryComboBox.Items.Clear();
+            if (addType != "Assests")
+            {
+                categoryComboBox.Items.Add(Figures.category1);
+                categoryComboBox.Items.Add(Figures.category2);
+                categoryComboBox.Items.Add(Figures.category3);
+                categoryComboBox.Items.Add(Figures.category4);
+            }
+            else
+            {
+                categoryComboBox.Items.Add(Figures.assestCategory1);
+                categoryComboBox.Items.Add(Figures.assestCategory2);
+                categoryComboBox.Items.Add(Figures.assestCategory3);
+                categoryComboBox.Items.Add(Figures.assestCategory4);
+            }
+        }
 
         private void SetErrorProviders()
         {
@@ -66,7 +86,7 @@ namespace Savings
         {
             if (categoryComboBox.SelectedIndex >= 0)
             {
-                switch (Main.addType)
+                switch (addType)
                 {
                     case "Monthly":
                         try
@@ -88,8 +108,7 @@ namespace Savings
                                 if (i != 1)
                                 {
                                     MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
-                                }
-                                mainForm.DrawMonthlyDataGridView();
+                                }                               
                                 Close();
                             }
                         }
@@ -120,7 +139,6 @@ namespace Savings
                                 {
                                     MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
                                 }
-                                mainForm.DrawYearlyDataGridView();
                                 Close();
                             }
                         }
@@ -151,7 +169,36 @@ namespace Savings
                                 {
                                     MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
                                 }
-                                mainForm.DrawWantedDataGridView();
+                                Close();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        break;
+
+                    case "Assests":
+                        try
+                        {
+                            using (SQLiteConnection con = new SQLiteConnection(Variables.dataPath))
+                            {
+                                SQLiteCommand cmd = new SQLiteCommand();
+                                cmd.CommandText = @"INSERT INTO Assests (Active, Description, Category, Amount) VALUES (@active,@description,@category,@amount) ";
+                                cmd.Connection = con;
+                                cmd.Parameters.Add(new SQLiteParameter("@active", 1));
+                                cmd.Parameters.Add(new SQLiteParameter("@description", descriptionTextBox.Text));
+                                cmd.Parameters.Add(new SQLiteParameter("@category", cat));
+                                cmd.Parameters.Add(new SQLiteParameter("@amount", amountTextBox.Text));
+
+                                con.Open();
+
+                                int i = cmd.ExecuteNonQuery();
+
+                                if (i != 1)
+                                {
+                                    MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
+                                }
                                 Close();
                             }
                         }

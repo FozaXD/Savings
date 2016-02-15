@@ -38,6 +38,8 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Breakdown));
             this.yearlyCat1Total = new System.Windows.Forms.Label();
             this.totYearlyBillLabel = new System.Windows.Forms.Label();
@@ -73,8 +75,6 @@
             this.wantedTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.overallTotal = new System.Windows.Forms.Label();
-            this.overallTotalLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -89,11 +89,21 @@
             this.noCat2 = new System.Windows.Forms.Label();
             this.noCat1 = new System.Windows.Forms.Label();
             this.noValues = new System.Windows.Forms.Label();
+            this.assestsFig = new System.Windows.Forms.Label();
+            this.assestsLabel = new System.Windows.Forms.Label();
+            this.spendingFunds = new System.Windows.Forms.Label();
+            this.spendingLabel = new System.Windows.Forms.Label();
+            this.avaliableFunds = new System.Windows.Forms.Label();
+            this.avaliableLabel = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.chart6 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.noValues2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart6)).BeginInit();
             this.SuspendLayout();
             // 
             // yearlyCat1Total
@@ -101,7 +111,7 @@
             this.yearlyCat1Total.AutoSize = true;
             this.yearlyCat1Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearlyCat1Total.ForeColor = System.Drawing.Color.White;
-            this.yearlyCat1Total.Location = new System.Drawing.Point(107, 85);
+            this.yearlyCat1Total.Location = new System.Drawing.Point(107, 133);
             this.yearlyCat1Total.Name = "yearlyCat1Total";
             this.yearlyCat1Total.Size = new System.Drawing.Size(99, 18);
             this.yearlyCat1Total.TabIndex = 4;
@@ -112,7 +122,7 @@
             // 
             this.totYearlyBillLabel.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.totYearlyBillLabel.ForeColor = System.Drawing.Color.White;
-            this.totYearlyBillLabel.Location = new System.Drawing.Point(12, 85);
+            this.totYearlyBillLabel.Location = new System.Drawing.Point(12, 133);
             this.totYearlyBillLabel.Name = "totYearlyBillLabel";
             this.totYearlyBillLabel.Size = new System.Drawing.Size(89, 18);
             this.totYearlyBillLabel.TabIndex = 3;
@@ -122,7 +132,7 @@
             // 
             this.yearlyLabel.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.yearlyLabel.ForeColor = System.Drawing.Color.White;
-            this.yearlyLabel.Location = new System.Drawing.Point(107, 67);
+            this.yearlyLabel.Location = new System.Drawing.Point(107, 115);
             this.yearlyLabel.Name = "yearlyLabel";
             this.yearlyLabel.Size = new System.Drawing.Size(89, 18);
             this.yearlyLabel.TabIndex = 5;
@@ -133,7 +143,7 @@
             this.yearlyCat2Total.AutoSize = true;
             this.yearlyCat2Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearlyCat2Total.ForeColor = System.Drawing.Color.White;
-            this.yearlyCat2Total.Location = new System.Drawing.Point(107, 103);
+            this.yearlyCat2Total.Location = new System.Drawing.Point(107, 151);
             this.yearlyCat2Total.Name = "yearlyCat2Total";
             this.yearlyCat2Total.Size = new System.Drawing.Size(99, 18);
             this.yearlyCat2Total.TabIndex = 7;
@@ -144,7 +154,7 @@
             // 
             this.yearlyCat2Label.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.yearlyCat2Label.ForeColor = System.Drawing.Color.White;
-            this.yearlyCat2Label.Location = new System.Drawing.Point(12, 103);
+            this.yearlyCat2Label.Location = new System.Drawing.Point(12, 151);
             this.yearlyCat2Label.Name = "yearlyCat2Label";
             this.yearlyCat2Label.Size = new System.Drawing.Size(89, 18);
             this.yearlyCat2Label.TabIndex = 6;
@@ -155,7 +165,7 @@
             this.yearlyCat3Total.AutoSize = true;
             this.yearlyCat3Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearlyCat3Total.ForeColor = System.Drawing.Color.White;
-            this.yearlyCat3Total.Location = new System.Drawing.Point(107, 121);
+            this.yearlyCat3Total.Location = new System.Drawing.Point(107, 169);
             this.yearlyCat3Total.Name = "yearlyCat3Total";
             this.yearlyCat3Total.Size = new System.Drawing.Size(99, 18);
             this.yearlyCat3Total.TabIndex = 9;
@@ -166,7 +176,7 @@
             // 
             this.yearlyCat3Label.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.yearlyCat3Label.ForeColor = System.Drawing.Color.White;
-            this.yearlyCat3Label.Location = new System.Drawing.Point(12, 121);
+            this.yearlyCat3Label.Location = new System.Drawing.Point(12, 169);
             this.yearlyCat3Label.Name = "yearlyCat3Label";
             this.yearlyCat3Label.Size = new System.Drawing.Size(89, 18);
             this.yearlyCat3Label.TabIndex = 8;
@@ -177,7 +187,7 @@
             this.yearlyCat4Total.AutoSize = true;
             this.yearlyCat4Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearlyCat4Total.ForeColor = System.Drawing.Color.White;
-            this.yearlyCat4Total.Location = new System.Drawing.Point(107, 139);
+            this.yearlyCat4Total.Location = new System.Drawing.Point(107, 187);
             this.yearlyCat4Total.Name = "yearlyCat4Total";
             this.yearlyCat4Total.Size = new System.Drawing.Size(99, 18);
             this.yearlyCat4Total.TabIndex = 11;
@@ -188,7 +198,7 @@
             // 
             this.yearlyCat4Label.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.yearlyCat4Label.ForeColor = System.Drawing.Color.White;
-            this.yearlyCat4Label.Location = new System.Drawing.Point(12, 139);
+            this.yearlyCat4Label.Location = new System.Drawing.Point(12, 187);
             this.yearlyCat4Label.Name = "yearlyCat4Label";
             this.yearlyCat4Label.Size = new System.Drawing.Size(89, 18);
             this.yearlyCat4Label.TabIndex = 10;
@@ -199,7 +209,7 @@
             this.monthlyCat4Total.AutoSize = true;
             this.monthlyCat4Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthlyCat4Total.ForeColor = System.Drawing.Color.White;
-            this.monthlyCat4Total.Location = new System.Drawing.Point(107, 275);
+            this.monthlyCat4Total.Location = new System.Drawing.Point(107, 323);
             this.monthlyCat4Total.Name = "monthlyCat4Total";
             this.monthlyCat4Total.Size = new System.Drawing.Size(110, 18);
             this.monthlyCat4Total.TabIndex = 20;
@@ -210,7 +220,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 275);
+            this.label2.Location = new System.Drawing.Point(12, 323);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 18);
             this.label2.TabIndex = 19;
@@ -221,7 +231,7 @@
             this.monthlyCat3Total.AutoSize = true;
             this.monthlyCat3Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthlyCat3Total.ForeColor = System.Drawing.Color.White;
-            this.monthlyCat3Total.Location = new System.Drawing.Point(107, 257);
+            this.monthlyCat3Total.Location = new System.Drawing.Point(107, 305);
             this.monthlyCat3Total.Name = "monthlyCat3Total";
             this.monthlyCat3Total.Size = new System.Drawing.Size(110, 18);
             this.monthlyCat3Total.TabIndex = 18;
@@ -232,7 +242,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 257);
+            this.label4.Location = new System.Drawing.Point(12, 305);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 18);
             this.label4.TabIndex = 17;
@@ -243,7 +253,7 @@
             this.monthlyCat2Total.AutoSize = true;
             this.monthlyCat2Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthlyCat2Total.ForeColor = System.Drawing.Color.White;
-            this.monthlyCat2Total.Location = new System.Drawing.Point(107, 239);
+            this.monthlyCat2Total.Location = new System.Drawing.Point(107, 287);
             this.monthlyCat2Total.Name = "monthlyCat2Total";
             this.monthlyCat2Total.Size = new System.Drawing.Size(110, 18);
             this.monthlyCat2Total.TabIndex = 16;
@@ -254,7 +264,7 @@
             // 
             this.label6.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(12, 239);
+            this.label6.Location = new System.Drawing.Point(12, 287);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 18);
             this.label6.TabIndex = 15;
@@ -264,7 +274,7 @@
             // 
             this.monthlyLabel.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.monthlyLabel.ForeColor = System.Drawing.Color.White;
-            this.monthlyLabel.Location = new System.Drawing.Point(107, 203);
+            this.monthlyLabel.Location = new System.Drawing.Point(107, 251);
             this.monthlyLabel.Name = "monthlyLabel";
             this.monthlyLabel.Size = new System.Drawing.Size(89, 18);
             this.monthlyLabel.TabIndex = 14;
@@ -275,7 +285,7 @@
             this.monthlyCat1Total.AutoSize = true;
             this.monthlyCat1Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthlyCat1Total.ForeColor = System.Drawing.Color.White;
-            this.monthlyCat1Total.Location = new System.Drawing.Point(107, 221);
+            this.monthlyCat1Total.Location = new System.Drawing.Point(107, 269);
             this.monthlyCat1Total.Name = "monthlyCat1Total";
             this.monthlyCat1Total.Size = new System.Drawing.Size(110, 18);
             this.monthlyCat1Total.TabIndex = 13;
@@ -286,7 +296,7 @@
             // 
             this.label9.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(12, 221);
+            this.label9.Location = new System.Drawing.Point(12, 269);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 18);
             this.label9.TabIndex = 12;
@@ -297,7 +307,7 @@
             this.wantedCat4Total.AutoSize = true;
             this.wantedCat4Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wantedCat4Total.ForeColor = System.Drawing.Color.White;
-            this.wantedCat4Total.Location = new System.Drawing.Point(107, 404);
+            this.wantedCat4Total.Location = new System.Drawing.Point(107, 452);
             this.wantedCat4Total.Name = "wantedCat4Total";
             this.wantedCat4Total.Size = new System.Drawing.Size(105, 18);
             this.wantedCat4Total.TabIndex = 29;
@@ -308,7 +318,7 @@
             // 
             this.label11.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(12, 404);
+            this.label11.Location = new System.Drawing.Point(12, 452);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 18);
             this.label11.TabIndex = 28;
@@ -319,7 +329,7 @@
             this.wantedCat3Total.AutoSize = true;
             this.wantedCat3Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wantedCat3Total.ForeColor = System.Drawing.Color.White;
-            this.wantedCat3Total.Location = new System.Drawing.Point(107, 386);
+            this.wantedCat3Total.Location = new System.Drawing.Point(107, 434);
             this.wantedCat3Total.Name = "wantedCat3Total";
             this.wantedCat3Total.Size = new System.Drawing.Size(105, 18);
             this.wantedCat3Total.TabIndex = 27;
@@ -330,7 +340,7 @@
             // 
             this.label13.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(12, 386);
+            this.label13.Location = new System.Drawing.Point(12, 434);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 18);
             this.label13.TabIndex = 26;
@@ -341,7 +351,7 @@
             this.wantedCat2Total.AutoSize = true;
             this.wantedCat2Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wantedCat2Total.ForeColor = System.Drawing.Color.White;
-            this.wantedCat2Total.Location = new System.Drawing.Point(107, 368);
+            this.wantedCat2Total.Location = new System.Drawing.Point(107, 416);
             this.wantedCat2Total.Name = "wantedCat2Total";
             this.wantedCat2Total.Size = new System.Drawing.Size(105, 18);
             this.wantedCat2Total.TabIndex = 25;
@@ -352,7 +362,7 @@
             // 
             this.label15.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(12, 368);
+            this.label15.Location = new System.Drawing.Point(12, 416);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(89, 18);
             this.label15.TabIndex = 24;
@@ -362,7 +372,7 @@
             // 
             this.label16.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(107, 332);
+            this.label16.Location = new System.Drawing.Point(107, 380);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(89, 18);
             this.label16.TabIndex = 23;
@@ -373,7 +383,7 @@
             this.wantedCat1Total.AutoSize = true;
             this.wantedCat1Total.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wantedCat1Total.ForeColor = System.Drawing.Color.White;
-            this.wantedCat1Total.Location = new System.Drawing.Point(107, 350);
+            this.wantedCat1Total.Location = new System.Drawing.Point(107, 398);
             this.wantedCat1Total.Name = "wantedCat1Total";
             this.wantedCat1Total.Size = new System.Drawing.Size(105, 18);
             this.wantedCat1Total.TabIndex = 22;
@@ -384,7 +394,7 @@
             // 
             this.label18.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(12, 350);
+            this.label18.Location = new System.Drawing.Point(12, 398);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(89, 18);
             this.label18.TabIndex = 21;
@@ -395,7 +405,7 @@
             this.yearlyTotal.AutoSize = true;
             this.yearlyTotal.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearlyTotal.ForeColor = System.Drawing.Color.White;
-            this.yearlyTotal.Location = new System.Drawing.Point(107, 166);
+            this.yearlyTotal.Location = new System.Drawing.Point(107, 214);
             this.yearlyTotal.Name = "yearlyTotal";
             this.yearlyTotal.Size = new System.Drawing.Size(72, 18);
             this.yearlyTotal.TabIndex = 31;
@@ -406,7 +416,7 @@
             // 
             this.yearlyTotalLabel.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.yearlyTotalLabel.ForeColor = System.Drawing.Color.White;
-            this.yearlyTotalLabel.Location = new System.Drawing.Point(51, 166);
+            this.yearlyTotalLabel.Location = new System.Drawing.Point(51, 214);
             this.yearlyTotalLabel.Name = "yearlyTotalLabel";
             this.yearlyTotalLabel.Size = new System.Drawing.Size(50, 18);
             this.yearlyTotalLabel.TabIndex = 30;
@@ -417,7 +427,7 @@
             this.monthlyTotal.AutoSize = true;
             this.monthlyTotal.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthlyTotal.ForeColor = System.Drawing.Color.White;
-            this.monthlyTotal.Location = new System.Drawing.Point(107, 302);
+            this.monthlyTotal.Location = new System.Drawing.Point(107, 350);
             this.monthlyTotal.Name = "monthlyTotal";
             this.monthlyTotal.Size = new System.Drawing.Size(83, 18);
             this.monthlyTotal.TabIndex = 33;
@@ -428,7 +438,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(51, 302);
+            this.label3.Location = new System.Drawing.Point(51, 350);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 18);
             this.label3.TabIndex = 32;
@@ -439,7 +449,7 @@
             this.wantedTotal.AutoSize = true;
             this.wantedTotal.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wantedTotal.ForeColor = System.Drawing.Color.White;
-            this.wantedTotal.Location = new System.Drawing.Point(107, 433);
+            this.wantedTotal.Location = new System.Drawing.Point(107, 481);
             this.wantedTotal.Name = "wantedTotal";
             this.wantedTotal.Size = new System.Drawing.Size(78, 18);
             this.wantedTotal.TabIndex = 35;
@@ -450,7 +460,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(51, 433);
+            this.label5.Location = new System.Drawing.Point(51, 481);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 18);
             this.label5.TabIndex = 34;
@@ -467,7 +477,7 @@
             chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "BreakdownTotal";
             this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(548, 38);
+            this.chart1.Location = new System.Drawing.Point(548, 50);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.BackImageTransparentColor = System.Drawing.Color.Transparent;
@@ -483,31 +493,9 @@
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ToolTip = "Overall Total for Category 1.";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(224, 198);
+            this.chart1.Size = new System.Drawing.Size(228, 238);
             this.chart1.TabIndex = 36;
             this.chart1.Text = "Category Totals";
-            // 
-            // overallTotal
-            // 
-            this.overallTotal.AutoSize = true;
-            this.overallTotal.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.overallTotal.ForeColor = System.Drawing.Color.LightGray;
-            this.overallTotal.Location = new System.Drawing.Point(156, 9);
-            this.overallTotal.Name = "overallTotal";
-            this.overallTotal.Size = new System.Drawing.Size(112, 25);
-            this.overallTotal.TabIndex = 38;
-            this.overallTotal.Text = "overallTotal";
-            // 
-            // overallTotalLabel
-            // 
-            this.overallTotalLabel.AutoSize = true;
-            this.overallTotalLabel.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.overallTotalLabel.ForeColor = System.Drawing.Color.White;
-            this.overallTotalLabel.Location = new System.Drawing.Point(10, 9);
-            this.overallTotalLabel.Name = "overallTotalLabel";
-            this.overallTotalLabel.Size = new System.Drawing.Size(140, 25);
-            this.overallTotalLabel.TabIndex = 37;
-            this.overallTotalLabel.Text = "Overall Total:";
             // 
             // label1
             // 
@@ -517,7 +505,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(585, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 38);
+            this.label1.Size = new System.Drawing.Size(160, 38);
             this.label1.TabIndex = 39;
             this.label1.Text = "Overall Category Breakdown:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -531,7 +519,7 @@
             chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
             chartArea2.Name = "BreakdownTotal";
             this.chart2.ChartAreas.Add(chartArea2);
-            this.chart2.Location = new System.Drawing.Point(391, 321);
+            this.chart2.Location = new System.Drawing.Point(395, 361);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series2.BackImageTransparentColor = System.Drawing.Color.Transparent;
@@ -560,7 +548,7 @@
             chartArea3.BackSecondaryColor = System.Drawing.Color.Transparent;
             chartArea3.Name = "BreakdownTotal";
             this.chart3.ChartAreas.Add(chartArea3);
-            this.chart3.Location = new System.Drawing.Point(245, 321);
+            this.chart3.Location = new System.Drawing.Point(249, 361);
             this.chart3.Name = "chart3";
             this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series3.BackImageTransparentColor = System.Drawing.Color.Transparent;
@@ -589,7 +577,7 @@
             chartArea4.BackSecondaryColor = System.Drawing.Color.Transparent;
             chartArea4.Name = "BreakdownTotal";
             this.chart4.ChartAreas.Add(chartArea4);
-            this.chart4.Location = new System.Drawing.Point(528, 321);
+            this.chart4.Location = new System.Drawing.Point(532, 361);
             this.chart4.Name = "chart4";
             this.chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series4.BackImageTransparentColor = System.Drawing.Color.Transparent;
@@ -614,7 +602,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(240, 283);
+            this.label7.Location = new System.Drawing.Point(244, 323);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(156, 38);
             this.label7.TabIndex = 45;
@@ -626,7 +614,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(385, 283);
+            this.label8.Location = new System.Drawing.Point(389, 323);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(156, 38);
             this.label8.TabIndex = 46;
@@ -638,7 +626,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(522, 280);
+            this.label10.Location = new System.Drawing.Point(526, 320);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(156, 38);
             this.label10.TabIndex = 47;
@@ -650,7 +638,7 @@
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(655, 280);
+            this.label12.Location = new System.Drawing.Point(659, 320);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(156, 38);
             this.label12.TabIndex = 49;
@@ -666,7 +654,7 @@
             chartArea5.BackSecondaryColor = System.Drawing.Color.Transparent;
             chartArea5.Name = "BreakdownTotal";
             this.chart5.ChartAreas.Add(chartArea5);
-            this.chart5.Location = new System.Drawing.Point(659, 321);
+            this.chart5.Location = new System.Drawing.Point(663, 361);
             this.chart5.Name = "chart5";
             this.chart5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series5.BackImageTransparentColor = System.Drawing.Color.Transparent;
@@ -691,7 +679,7 @@
             this.noCat3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.noCat3.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.noCat3.ForeColor = System.Drawing.Color.White;
-            this.noCat3.Location = new System.Drawing.Point(557, 359);
+            this.noCat3.Location = new System.Drawing.Point(561, 399);
             this.noCat3.Name = "noCat3";
             this.noCat3.Size = new System.Drawing.Size(83, 54);
             this.noCat3.TabIndex = 50;
@@ -704,7 +692,7 @@
             this.noCat4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.noCat4.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.noCat4.ForeColor = System.Drawing.Color.White;
-            this.noCat4.Location = new System.Drawing.Point(689, 359);
+            this.noCat4.Location = new System.Drawing.Point(693, 399);
             this.noCat4.Name = "noCat4";
             this.noCat4.Size = new System.Drawing.Size(83, 54);
             this.noCat4.TabIndex = 51;
@@ -717,7 +705,7 @@
             this.noCat2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.noCat2.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.noCat2.ForeColor = System.Drawing.Color.White;
-            this.noCat2.Location = new System.Drawing.Point(421, 359);
+            this.noCat2.Location = new System.Drawing.Point(425, 399);
             this.noCat2.Name = "noCat2";
             this.noCat2.Size = new System.Drawing.Size(83, 54);
             this.noCat2.TabIndex = 52;
@@ -730,7 +718,7 @@
             this.noCat1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.noCat1.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.noCat1.ForeColor = System.Drawing.Color.White;
-            this.noCat1.Location = new System.Drawing.Point(274, 359);
+            this.noCat1.Location = new System.Drawing.Point(278, 399);
             this.noCat1.Name = "noCat1";
             this.noCat1.Size = new System.Drawing.Size(83, 54);
             this.noCat1.TabIndex = 53;
@@ -745,20 +733,157 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.noValues.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.noValues.ForeColor = System.Drawing.Color.White;
-            this.noValues.Location = new System.Drawing.Point(619, 121);
+            this.noValues.Location = new System.Drawing.Point(619, 142);
             this.noValues.Name = "noValues";
-            this.noValues.Size = new System.Drawing.Size(83, 36);
+            this.noValues.Size = new System.Drawing.Size(87, 46);
             this.noValues.TabIndex = 54;
             this.noValues.Text = "No Values Exist";
             this.noValues.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.noValues.Visible = false;
+            // 
+            // assestsFig
+            // 
+            this.assestsFig.AutoSize = true;
+            this.assestsFig.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assestsFig.ForeColor = System.Drawing.Color.Orange;
+            this.assestsFig.Location = new System.Drawing.Point(124, 76);
+            this.assestsFig.Name = "assestsFig";
+            this.assestsFig.Size = new System.Drawing.Size(79, 25);
+            this.assestsFig.TabIndex = 60;
+            this.assestsFig.Text = "assests";
+            this.assestsFig.Visible = false;
+            // 
+            // assestsLabel
+            // 
+            this.assestsLabel.AutoSize = true;
+            this.assestsLabel.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assestsLabel.ForeColor = System.Drawing.Color.White;
+            this.assestsLabel.Location = new System.Drawing.Point(24, 76);
+            this.assestsLabel.Name = "assestsLabel";
+            this.assestsLabel.Size = new System.Drawing.Size(94, 25);
+            this.assestsLabel.TabIndex = 59;
+            this.assestsLabel.Text = "Assests:";
+            // 
+            // spendingFunds
+            // 
+            this.spendingFunds.AutoSize = true;
+            this.spendingFunds.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spendingFunds.ForeColor = System.Drawing.Color.Firebrick;
+            this.spendingFunds.Location = new System.Drawing.Point(124, 43);
+            this.spendingFunds.Name = "spendingFunds";
+            this.spendingFunds.Size = new System.Drawing.Size(143, 25);
+            this.spendingFunds.TabIndex = 58;
+            this.spendingFunds.Text = "spendingFunds";
+            this.spendingFunds.Visible = false;
+            // 
+            // spendingLabel
+            // 
+            this.spendingLabel.AutoSize = true;
+            this.spendingLabel.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spendingLabel.ForeColor = System.Drawing.Color.White;
+            this.spendingLabel.Location = new System.Drawing.Point(11, 43);
+            this.spendingLabel.Name = "spendingLabel";
+            this.spendingLabel.Size = new System.Drawing.Size(107, 25);
+            this.spendingLabel.TabIndex = 57;
+            this.spendingLabel.Text = "Spending:";
+            // 
+            // avaliableFunds
+            // 
+            this.avaliableFunds.AutoSize = true;
+            this.avaliableFunds.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.avaliableFunds.ForeColor = System.Drawing.Color.YellowGreen;
+            this.avaliableFunds.Location = new System.Drawing.Point(124, 9);
+            this.avaliableFunds.Name = "avaliableFunds";
+            this.avaliableFunds.Size = new System.Drawing.Size(142, 25);
+            this.avaliableFunds.TabIndex = 56;
+            this.avaliableFunds.Text = "avaliableFunds";
+            this.avaliableFunds.Visible = false;
+            // 
+            // avaliableLabel
+            // 
+            this.avaliableLabel.AutoSize = true;
+            this.avaliableLabel.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.avaliableLabel.ForeColor = System.Drawing.Color.White;
+            this.avaliableLabel.Location = new System.Drawing.Point(12, 9);
+            this.avaliableLabel.Name = "avaliableLabel";
+            this.avaliableLabel.Size = new System.Drawing.Size(106, 25);
+            this.avaliableLabel.TabIndex = 55;
+            this.avaliableLabel.Text = "Avaliable:";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(328, 22);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(160, 25);
+            this.label14.TabIndex = 62;
+            this.label14.Text = "Spent vs Saved:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // chart6
+            // 
+            this.chart6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chart6.BackColor = System.Drawing.Color.Transparent;
+            this.chart6.BorderlineColor = System.Drawing.Color.DimGray;
+            chartArea6.BackColor = System.Drawing.Color.Transparent;
+            chartArea6.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea6.Name = "BreakdownTotal";
+            this.chart6.ChartAreas.Add(chartArea6);
+            this.chart6.Location = new System.Drawing.Point(272, 37);
+            this.chart6.Name = "chart6";
+            this.chart6.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            series6.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            series6.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series6.ChartArea = "BreakdownTotal";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.Color = System.Drawing.Color.White;
+            series6.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F);
+            series6.IsVisibleInLegend = false;
+            series6.LabelBackColor = System.Drawing.Color.Transparent;
+            series6.LabelForeColor = System.Drawing.Color.White;
+            series6.Name = "Breakdown";
+            series6.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
+            series6.ToolTip = "Overall Total for Category 1.";
+            this.chart6.Series.Add(series6);
+            this.chart6.Size = new System.Drawing.Size(268, 268);
+            this.chart6.TabIndex = 61;
+            this.chart6.Text = "Category Totals";
+            // 
+            // noValues2
+            // 
+            this.noValues2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.noValues2.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.noValues2.ForeColor = System.Drawing.Color.White;
+            this.noValues2.Location = new System.Drawing.Point(364, 142);
+            this.noValues2.Name = "noValues2";
+            this.noValues2.Size = new System.Drawing.Size(87, 37);
+            this.noValues2.TabIndex = 63;
+            this.noValues2.Text = "No Values Exist";
+            this.noValues2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.noValues2.Visible = false;
             // 
             // Breakdown
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.ClientSize = new System.Drawing.Size(801, 469);
+            this.ClientSize = new System.Drawing.Size(805, 509);
+            this.Controls.Add(this.noValues2);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.chart6);
+            this.Controls.Add(this.assestsFig);
+            this.Controls.Add(this.assestsLabel);
+            this.Controls.Add(this.spendingFunds);
+            this.Controls.Add(this.spendingLabel);
+            this.Controls.Add(this.avaliableFunds);
+            this.Controls.Add(this.avaliableLabel);
             this.Controls.Add(this.noValues);
             this.Controls.Add(this.noCat1);
             this.Controls.Add(this.noCat2);
@@ -773,8 +898,6 @@
             this.Controls.Add(this.chart3);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.overallTotal);
-            this.Controls.Add(this.overallTotalLabel);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.wantedTotal);
             this.Controls.Add(this.label5);
@@ -819,6 +942,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -860,8 +984,6 @@
         private System.Windows.Forms.Label wantedTotal;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Label overallTotal;
-        private System.Windows.Forms.Label overallTotalLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
@@ -876,5 +998,14 @@
         private System.Windows.Forms.Label noCat2;
         private System.Windows.Forms.Label noCat1;
         private System.Windows.Forms.Label noValues;
+        private System.Windows.Forms.Label assestsFig;
+        private System.Windows.Forms.Label assestsLabel;
+        private System.Windows.Forms.Label spendingFunds;
+        private System.Windows.Forms.Label spendingLabel;
+        private System.Windows.Forms.Label avaliableFunds;
+        private System.Windows.Forms.Label avaliableLabel;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart6;
+        private System.Windows.Forms.Label noValues2;
     }
 }

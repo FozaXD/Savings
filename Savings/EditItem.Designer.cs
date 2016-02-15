@@ -70,11 +70,6 @@
             // 
             this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Items.AddRange(new object[] {
-            "1 - Critical",
-            "2 - Future",
-            "3 - Non-Essential",
-            "4 - Luxury"});
             this.categoryComboBox.Location = new System.Drawing.Point(78, 38);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(194, 21);

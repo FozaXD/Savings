@@ -16,9 +16,9 @@ namespace Savings
         public Breakdown()
         {
             InitializeComponent();
-
             SetLabels();
             SetCatTotals();
+            LoadSpentVSavedChart();
             LoadOverallChart();
             LoadCat1Chart();
             LoadCat2Chart();
@@ -28,16 +28,23 @@ namespace Savings
 
         public void SetLabels()
         {
-            overallTotal.Visible = false;
             noCat1.Visible = false;
             noCat2.Visible = false;
             noCat3.Visible = false;
             noCat4.Visible = false;
             noValues.Visible = false;
+            noValues2.Visible = false;
+            avaliableFunds.Visible = false;
+            assestsFig.Visible = false;
+            spendingFunds.Visible = false;
 
-            overallTotal.Text = Figures.overallTotal.ToString("C", CultureInfo.CurrentCulture);
+            avaliableFunds.Text = (Figures.assestTotal - Figures.overallTotal).ToString("C", CultureInfo.CurrentCulture);
+            assestsFig.Text = Figures.assestTotal.ToString("C", CultureInfo.CurrentCulture);
+            spendingFunds.Text = Figures.overallTotal.ToString("C", CultureInfo.CurrentCulture);
 
-            overallTotal.Visible = true;
+            avaliableFunds.Visible = true;
+            assestsFig.Visible = true;
+            spendingFunds.Visible = true;
 
 
         }
@@ -98,23 +105,46 @@ namespace Savings
             wantedTotal.Visible = true;
         }
 
+
+        public void LoadSpentVSavedChart()
+        {
+            if (Figures.overallTotal > 0)
+            {
+                chart6.Series["Breakdown"].Points.AddXY("Spent", Figures.overallTotal);
+            }
+            if (Figures.assestTotal > 0)
+            {
+                chart6.Series["Breakdown"].Points.AddXY("Saved", Figures.assestTotal);
+            }
+            if (chart6.Series["Breakdown"].Points.Count == 0)
+            {
+                noValues2.Visible = true;
+            }
+            chart6.Series["Breakdown"].Points[0].Color = Color.Firebrick;
+            chart6.Series["Breakdown"].Points[1].Color = Color.YellowGreen;
+        }
+
         public void LoadOverallChart()
         {
             if ((Figures.sumYearlyCat1 + Figures.sumMonthlyCat1 + Figures.sumWantedCat1) > 0)
             {
-                chart1.Series["Breakdown"].Points.AddXY("Category 1", Figures.sumYearlyCat1 + Figures.sumMonthlyCat1 + Figures.sumWantedCat1);
+                chart1.Series["Breakdown"].Points.AddXY(Figures.category1Name, Figures.sumYearlyCat1 + Figures.sumMonthlyCat1 + Figures.sumWantedCat1);
             }
             if ((Figures.sumYearlyCat2 + Figures.sumMonthlyCat2 + Figures.sumWantedCat2) > 0)
             {
-                chart1.Series["Breakdown"].Points.AddXY("Category 2", Figures.sumYearlyCat2 + Figures.sumMonthlyCat2 + Figures.sumWantedCat2);
+                chart1.Series["Breakdown"].Points.AddXY(Figures.category2Name, Figures.sumYearlyCat2 + Figures.sumMonthlyCat2 + Figures.sumWantedCat2);
             }
             if ((Figures.sumYearlyCat3 + Figures.sumMonthlyCat3 + Figures.sumWantedCat3) > 0)
             {
-                chart1.Series["Breakdown"].Points.AddXY("Category 3", Figures.sumYearlyCat3 + Figures.sumMonthlyCat3 + Figures.sumWantedCat3);
+                chart1.Series["Breakdown"].Points.AddXY(Figures.category3Name, Figures.sumYearlyCat3 + Figures.sumMonthlyCat3 + Figures.sumWantedCat3);
             }
             if ((Figures.sumYearlyCat4 + Figures.sumMonthlyCat4 + Figures.sumWantedCat4) > 0)
             {
-                chart1.Series["Breakdown"].Points.AddXY("Category 4", Figures.sumYearlyCat4 + Figures.sumMonthlyCat4 + Figures.sumWantedCat4);
+                chart1.Series["Breakdown"].Points.AddXY(Figures.category4Name, Figures.sumYearlyCat4 + Figures.sumMonthlyCat4 + Figures.sumWantedCat4);
+            }
+            if (chart1.Series["Breakdown"].Points.Count == 0)
+            {
+                noValues.Visible = true;
             }
         }
 

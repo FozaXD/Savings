@@ -70,11 +70,6 @@
             // 
             this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Items.AddRange(new object[] {
-            resources.GetString("categoryComboBox.Items"),
-            resources.GetString("categoryComboBox.Items1"),
-            resources.GetString("categoryComboBox.Items2"),
-            resources.GetString("categoryComboBox.Items3")});
             resources.ApplyResources(this.categoryComboBox, "categoryComboBox");
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);

@@ -85,6 +85,14 @@ namespace Savings
                           [Amount] NUMERIC NOT NULL
                           )";
 
+                string createAssestTableQuery = @"CREATE TABLE IF NOT EXISTS [Assests] (
+                          [Id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+                          [Active] INTEGER NOT NULL,
+                          [Description] TEXT NOT NULL,
+                          [Category] INTEGER NULL,
+                          [Amount] NUMERIC NOT NULL
+                          )";
+
                 System.Data.SQLite.SQLiteConnection.CreateFile(Path.Combine(Variables.databaseFolder,newAccountName));        // Create the file which will be hosting our database
                 using (System.Data.SQLite.SQLiteConnection con = new System.Data.SQLite.SQLiteConnection("data source=" + Path.Combine(Variables.databaseFolder, newAccountName)))
                 {
@@ -97,6 +105,8 @@ namespace Savings
                         com.CommandText = createYearlyTableQuery;     // Set CommandText to our query that will create the table
                         com.ExecuteNonQuery();                  // Execute the query                   
                         com.CommandText = createWantedTableQuery;     // Set CommandText to our query that will create the table
+                        com.ExecuteNonQuery();                  // Execute the query
+                        com.CommandText = createAssestTableQuery;     // Set CommandText to our query that will create the table
                         com.ExecuteNonQuery();                  // Execute the query
 
 

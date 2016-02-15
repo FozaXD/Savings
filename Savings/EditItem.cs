@@ -19,24 +19,42 @@ namespace Savings
         #region Parameters?
 
         int cat;
-        private Main mainForm;
-
+        string editItem;
         #endregion
+            #region Constructors
 
-        #region Constructors
-
-        public EditItem(Main form)
+        public EditItem(string _editItem)
         {
             InitializeComponent();
-            SetErrorProviders();
-            SetFields();
+            editItem = _editItem;
 
-            mainForm = form;
+            SetErrorProviders();
+            SetupCategories();
+            SetFields();         
         }
 
         #endregion
 
         #region Functions
+
+        public void SetupCategories()
+        {
+            categoryComboBox.Items.Clear();
+            if (editItem != "Assests")
+            {
+                categoryComboBox.Items.Add(Figures.category1);
+                categoryComboBox.Items.Add(Figures.category2);
+                categoryComboBox.Items.Add(Figures.category3);
+                categoryComboBox.Items.Add(Figures.category4);
+            }
+            else
+            {
+                categoryComboBox.Items.Add(Figures.assestCategory1);
+                categoryComboBox.Items.Add(Figures.assestCategory2);
+                categoryComboBox.Items.Add(Figures.assestCategory3);
+                categoryComboBox.Items.Add(Figures.assestCategory4);
+            }
+        }
 
         private void SetErrorProviders()
         {
@@ -73,7 +91,7 @@ namespace Savings
 
         public void editRecord()
         {
-            switch (Main.editType)
+            switch (editItem)
             {
                 case "Monthly":
                     try
@@ -96,7 +114,6 @@ namespace Savings
                             {
                                 MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
                             }
-                            mainForm.Draw();
                             Close();
                         }
                     }
@@ -127,7 +144,6 @@ namespace Savings
                             {
                                 MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
                             }
-                            mainForm.Draw();
                             Close();
                         }
                     }
@@ -158,7 +174,36 @@ namespace Savings
                             {
                                 MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
                             }
-                            mainForm.Draw();
+                            Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    break;
+
+                case "Assests":
+                    try
+                    {
+                        using (SQLiteConnection con = new SQLiteConnection(Variables.dataPath))
+                        {
+                            SQLiteCommand cmd = new SQLiteCommand();
+                            cmd.CommandText = @"Update Assests SET Active = @active, Description = @description, Category = @category, Amount = @amount where Id =" + Variables.Id;
+                            cmd.Connection = con;
+                            cmd.Parameters.Add(new SQLiteParameter("@active", 1));
+                            cmd.Parameters.Add(new SQLiteParameter("@description", descriptionTextBox.Text));
+                            cmd.Parameters.Add(new SQLiteParameter("@category", cat));
+                            cmd.Parameters.Add(new SQLiteParameter("@amount", amountTextBox.Text));
+
+                            con.Open();
+
+                            int i = cmd.ExecuteNonQuery();
+
+                            if (i != 1)
+                            {
+                                MessageBox.Show("The database isn't being friendly at the moment. He doesn't want to talk to me.");
+                            }
                             Close();
                         }
                     }

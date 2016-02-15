@@ -219,18 +219,6 @@
   <data name="&gt;&gt;amountText.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="categoryComboBox.Items" xml:space="preserve">
-    <value>1 - Critical</value>
-  </data>
-  <data name="categoryComboBox.Items1" xml:space="preserve">
-    <value>2 - Future</value>
-  </data>
-  <data name="categoryComboBox.Items2" xml:space="preserve">
-    <value>3 - Non-Essential</value>
-  </data>
-  <data name="categoryComboBox.Items3" xml:space="preserve">
-    <value>4 - Luxury</value>
-  </data>
   <data name="categoryComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>78, 38</value>
   </data>

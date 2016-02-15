@@ -40,7 +40,6 @@ namespace Savings
         public void Draw()
         {
             ClearTotals();
-            ClearSelected();
             DrawYearlyDataGridView();
             DrawMonthlyDataGridView();
             DrawWantedDataGridView();
@@ -48,6 +47,7 @@ namespace Savings
             SetCatTotals();
             GetCategoryCounts();
             GetBreakdownCounts();
+            ClearSelected();
         }
 
         public void SetToolTips()
@@ -74,6 +74,7 @@ namespace Savings
         public void ClearTotals()
         {
             Figures.overallTotal = 0.00m;
+            Figures.assestTotal = 0.00m;
 
             Figures.totalYearly = 0.00m;
             Figures.totalMonthly = 0.00m;
@@ -252,6 +253,41 @@ namespace Savings
             }
 
             SetTotalLabels();
+            LoadAssestTotal();
+        }
+
+        public void LoadAssestTotal()
+        {
+            int AssestsRecordCount = 0;
+            try
+            {
+                SQLiteConnection con = new SQLiteConnection(Variables.dataPath);
+                con.Open();
+                SQLiteCommand comm = new SQLiteCommand("Select sum(Amount) from Assests", con);
+                SQLiteCommand comm2 = new SQLiteCommand("Select count(*) FROM Assests", con);
+                using (SQLiteDataReader read2 = comm2.ExecuteReader())
+                {
+                    while (read2.Read())
+                    {
+                        AssestsRecordCount = Convert.ToInt32(read2[0]);
+                    }
+                }
+                if (AssestsRecordCount > 0)
+                {
+                    using (SQLiteDataReader read = comm.ExecuteReader())
+                    {
+                        while (read.Read())
+                        {
+                            Figures.assestTotal = Convert.ToDecimal(read[0]);
+                        }
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void SetTotalLabels()
@@ -506,11 +542,11 @@ namespace Savings
 
         private void addWantedButton_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the AddItem class
-            AddItem addItemForm = new AddItem(this);
-
             // Set the add type
             addType = "Wanted";
+
+            // Create a new instance of the AddItem class
+            AddItem addItemForm = new AddItem(addType);
 
             // Show the AddItem form
             addItemForm.ShowDialog();
@@ -519,11 +555,11 @@ namespace Savings
 
         private void addMonthlyButton_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the AddItem class
-            AddItem addItemForm = new AddItem(this);
-
             // Set the add type
             addType = "Monthly";
+
+            // Create a new instance of the AddItem class
+            AddItem addItemForm = new AddItem(addType);
 
             // Show the AddItem form
             addItemForm.ShowDialog();
@@ -532,11 +568,11 @@ namespace Savings
 
         private void addYearlyButton_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the AddItem class
-            AddItem addItemForm = new AddItem(this);
-
             // Set the add type
             addType = "Yearly";
+
+            // Create a new instance of the AddItem class
+            AddItem addItemForm = new AddItem(addType);
 
             // Show the AddItem form
             addItemForm.ShowDialog();
@@ -601,8 +637,9 @@ namespace Savings
 
                 editType = "Monthly";
 
-                EditItem editItem = new EditItem(this);
+                EditItem editItem = new EditItem(editType);
                 editItem.ShowDialog();
+                Draw();
             }
         }
 
@@ -637,8 +674,9 @@ namespace Savings
 
                 editType = "Wanted";
 
-                EditItem editItem = new EditItem(this);
+                EditItem editItem = new EditItem(editType);
                 editItem.ShowDialog();
+                Draw();
             }
         }
 
@@ -689,8 +727,9 @@ namespace Savings
 
                 editType = "Yearly";
 
-                EditItem editItem = new EditItem(this);
+                EditItem editItem = new EditItem(editType);
                 editItem.ShowDialog();
+                Draw();
             }
         }
 
@@ -758,6 +797,12 @@ namespace Savings
         {
             Breakdown breakdown = new Breakdown();
             var dialogResult = breakdown.ShowDialog();
+        }
+
+        private void assestsButton_Click(object sender, EventArgs e)
+        {
+            Assests assests = new Assests();
+            assests.ShowDialog();
         }
 
         #endregion
