@@ -11,6 +11,7 @@ using System.Data.SQLite;
 
 using Savings;
 using System.Globalization;
+using System.IO;
 
 namespace Savings
 {
@@ -29,8 +30,7 @@ namespace Savings
         public Main()
         {
             InitializeComponent();
-
-            Startup1();
+            CheckReusePathExists();
 
             Draw();
             SetToolTips();
@@ -48,6 +48,33 @@ namespace Savings
             GetCategoryCounts();
             GetBreakdownCounts();
             ClearSelected();
+        }
+
+        public void CheckReusePathExists()
+        {
+            if(File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Reusepath.txt"))
+            {
+                reuse.Checked = true;
+                Variables.dataPath = File.ReadLines(AppDomain.CurrentDomain.BaseDirectory + "Reusepath.txt").Skip(0).Take(1).First();
+                Variables.accountName = File.ReadLines(AppDomain.CurrentDomain.BaseDirectory + "Reusepath.txt").Skip(1).Take(1).First();
+            }
+            else
+            {
+                reuse.Checked = false;
+                Startup1();
+            }
+        }
+
+        public void WriteReusePath()
+        {
+            string[] lines = { Variables.dataPath, Variables.accountName };
+            try {
+                System.IO.File.WriteAllLines(AppDomain.CurrentDomain.BaseDirectory + "Reusepath.txt", lines);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         public void SetToolTips()
@@ -803,6 +830,21 @@ namespace Savings
         {
             Assests assests = new Assests();
             assests.ShowDialog();
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (reuse.Checked == true)
+            {
+                WriteReusePath();
+            }
+            else
+            {
+                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + @"\Reusepath.txt"))
+                {
+                    File.Delete(AppDomain.CurrentDomain.BaseDirectory + @"\Reusepath.txt");
+                }
+            }
         }
 
         #endregion
