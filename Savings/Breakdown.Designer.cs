@@ -491,7 +491,7 @@
             series1.LabelForeColor = System.Drawing.Color.White;
             series1.Name = "Breakdown";
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ToolTip = "Overall Total for Category 1.";
+            series1.ToolTip = "Overall Category Total Breakdown.";
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(228, 238);
             this.chart1.TabIndex = 36;
@@ -533,7 +533,7 @@
             series2.LabelForeColor = System.Drawing.Color.White;
             series2.Name = "Cat2Breakdown";
             series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series2.ToolTip = "Overall Total for Category 1.";
+            series2.ToolTip = "Overall Total for Category 2.";
             this.chart2.Series.Add(series2);
             this.chart2.Size = new System.Drawing.Size(140, 130);
             this.chart2.TabIndex = 40;
@@ -591,7 +591,7 @@
             series4.LabelForeColor = System.Drawing.Color.White;
             series4.Name = "Cat3Breakdown";
             series4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series4.ToolTip = "Overall Total for Category 1.";
+            series4.ToolTip = "Overall Total for Category 3.";
             this.chart4.Series.Add(series4);
             this.chart4.Size = new System.Drawing.Size(140, 130);
             this.chart4.TabIndex = 44;
@@ -668,7 +668,7 @@
             series5.LabelForeColor = System.Drawing.Color.White;
             series5.Name = "Cat4Breakdown";
             series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series5.ToolTip = "Overall Total for Category 1.";
+            series5.ToolTip = "Overall Total for Category 4.";
             this.chart5.Series.Add(series5);
             this.chart5.Size = new System.Drawing.Size(140, 130);
             this.chart5.TabIndex = 48;
@@ -848,7 +848,7 @@
             series6.LabelForeColor = System.Drawing.Color.White;
             series6.Name = "Breakdown";
             series6.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series6.ToolTip = "Overall Total for Category 1.";
+            series6.ToolTip = "Distribution of Savings vs. Spending.";
             this.chart6.Series.Add(series6);
             this.chart6.Size = new System.Drawing.Size(268, 268);
             this.chart6.TabIndex = 61;

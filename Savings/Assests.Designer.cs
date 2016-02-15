@@ -276,7 +276,7 @@
             series1.LabelForeColor = System.Drawing.Color.White;
             series1.Name = "Breakdown";
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series1.ToolTip = "Overall Total for Category 1.";
+            series1.ToolTip = "Distribution of Savings vs. Spending.";
             this.chart6.Series.Add(series1);
             this.chart6.Size = new System.Drawing.Size(160, 158);
             this.chart6.TabIndex = 63;
