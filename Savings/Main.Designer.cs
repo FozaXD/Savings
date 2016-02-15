@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.assestsButton = new System.Windows.Forms.Button();
-            this.breakdownButton = new System.Windows.Forms.Button();
             this.wantedBar = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.monthlyBar = new System.Windows.Forms.Panel();
@@ -60,6 +58,8 @@
             this.yearlyTotalLabel = new System.Windows.Forms.Label();
             this.totMonthlyBillsLabel = new System.Windows.Forms.Label();
             this.totYearlyBillLabel = new System.Windows.Forms.Label();
+            this.assestsButton = new System.Windows.Forms.Button();
+            this.breakdownButton = new System.Windows.Forms.Button();
             this.monthlyDataGridView = new System.Windows.Forms.DataGridView();
             this.monthlyIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monthlyDescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,34 +134,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Totals";
-            // 
-            // assestsButton
-            // 
-            this.assestsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.assestsButton.BackColor = System.Drawing.Color.Silver;
-            this.assestsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.assestsButton.ForeColor = System.Drawing.Color.White;
-            this.assestsButton.Location = new System.Drawing.Point(16, 457);
-            this.assestsButton.Name = "assestsButton";
-            this.assestsButton.Size = new System.Drawing.Size(102, 39);
-            this.assestsButton.TabIndex = 20;
-            this.assestsButton.Text = "Assests";
-            this.assestsButton.UseVisualStyleBackColor = false;
-            this.assestsButton.Click += new System.EventHandler(this.assestsButton_Click);
-            // 
-            // breakdownButton
-            // 
-            this.breakdownButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.breakdownButton.BackColor = System.Drawing.Color.Silver;
-            this.breakdownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.breakdownButton.ForeColor = System.Drawing.Color.White;
-            this.breakdownButton.Location = new System.Drawing.Point(124, 457);
-            this.breakdownButton.Name = "breakdownButton";
-            this.breakdownButton.Size = new System.Drawing.Size(102, 39);
-            this.breakdownButton.TabIndex = 19;
-            this.breakdownButton.Text = "Breakdown";
-            this.breakdownButton.UseVisualStyleBackColor = false;
-            this.breakdownButton.Click += new System.EventHandler(this.breakdownButton_Click);
             // 
             // wantedBar
             // 
@@ -394,6 +366,34 @@
             this.totYearlyBillLabel.TabIndex = 0;
             this.totYearlyBillLabel.Text = "Yearly Bills:";
             // 
+            // assestsButton
+            // 
+            this.assestsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.assestsButton.BackColor = System.Drawing.Color.Silver;
+            this.assestsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.assestsButton.ForeColor = System.Drawing.Color.White;
+            this.assestsButton.Location = new System.Drawing.Point(16, 457);
+            this.assestsButton.Name = "assestsButton";
+            this.assestsButton.Size = new System.Drawing.Size(102, 39);
+            this.assestsButton.TabIndex = 20;
+            this.assestsButton.Text = "Assests";
+            this.assestsButton.UseVisualStyleBackColor = false;
+            this.assestsButton.Click += new System.EventHandler(this.assestsButton_Click);
+            // 
+            // breakdownButton
+            // 
+            this.breakdownButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.breakdownButton.BackColor = System.Drawing.Color.Silver;
+            this.breakdownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.breakdownButton.ForeColor = System.Drawing.Color.White;
+            this.breakdownButton.Location = new System.Drawing.Point(124, 457);
+            this.breakdownButton.Name = "breakdownButton";
+            this.breakdownButton.Size = new System.Drawing.Size(102, 39);
+            this.breakdownButton.TabIndex = 19;
+            this.breakdownButton.Text = "Breakdown";
+            this.breakdownButton.UseVisualStyleBackColor = false;
+            this.breakdownButton.Click += new System.EventHandler(this.breakdownButton_Click);
+            // 
             // monthlyDataGridView
             // 
             this.monthlyDataGridView.AllowUserToAddRows = false;
@@ -404,28 +404,28 @@
             this.monthlyDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.monthlyDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.monthlyDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.monthlyDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.monthlyDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.monthlyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.monthlyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.monthlyIdColumn,
             this.monthlyDescriptionColumn,
             this.monthlyCatColumn,
             this.monthlyAmtColumn});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.monthlyDataGridView.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.monthlyDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.monthlyDataGridView.EnableHeadersVisualStyles = false;
             this.monthlyDataGridView.Location = new System.Drawing.Point(6, 24);
             this.monthlyDataGridView.Name = "monthlyDataGridView";
@@ -502,28 +502,28 @@
             this.yearlyDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.yearlyDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.yearlyDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.yearlyDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.yearlyDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.yearlyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.yearlyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.yearlyIdColumn,
             this.yearlyDescriptionColumn,
             this.yearlyCatColumn,
             this.yearlyAmtColumn});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.yearlyDataGridView.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.yearlyDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.yearlyDataGridView.EnableHeadersVisualStyles = false;
             this.yearlyDataGridView.Location = new System.Drawing.Point(6, 24);
             this.yearlyDataGridView.MultiSelect = false;
@@ -674,28 +674,28 @@
             this.wantedDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.wantedDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.wantedDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.wantedDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.wantedDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.wantedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.wantedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.wantedIdColumn,
             this.wantedDescriptionColumn,
             this.wantedCatColumn,
             this.wantedAmtColumn});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.wantedDataGridView.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.wantedDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.wantedDataGridView.EnableHeadersVisualStyles = false;
             this.wantedDataGridView.Location = new System.Drawing.Point(6, 24);
             this.wantedDataGridView.MultiSelect = false;
@@ -809,12 +809,13 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 279F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 291F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(858, 291);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // reuse
             // 
+            this.reuse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.reuse.AutoSize = true;
             this.reuse.ForeColor = System.Drawing.Color.White;
             this.reuse.Location = new System.Drawing.Point(757, 474);
