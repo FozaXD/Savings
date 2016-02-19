@@ -134,6 +134,8 @@ namespace Savings
         {
             accountNameLabel.Text = Variables.accountName;
             accountNameLabel.Visible = true;
+            Text += " - " + Variables.accountName;
+            Refresh();
         }
 
         public void Startup1()

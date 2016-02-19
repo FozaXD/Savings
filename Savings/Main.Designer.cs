@@ -291,6 +291,7 @@
             this.accountNameLabel.Size = new System.Drawing.Size(106, 21);
             this.accountNameLabel.TabIndex = 6;
             this.accountNameLabel.Text = "accountname";
+            this.accountNameLabel.Visible = false;
             // 
             // wantedTotalLabel
             // 
