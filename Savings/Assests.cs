@@ -24,6 +24,11 @@ namespace Savings
         public void LoadSpentVSavedChart()
         {
             noValues2.Visible = false;
+            foreach (var series in chart6.Series)
+            {
+                series.Points.Clear();
+            }
+
             if (Figures.overallTotal > 0)
             {
                 chart6.Series["Breakdown"].Points.AddXY("Spent", Figures.overallTotal);
